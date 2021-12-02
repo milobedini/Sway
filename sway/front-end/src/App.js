@@ -1,10 +1,10 @@
-import React from "react"
-import axios from "axios"
+import React from 'react'
+import axios from 'axios'
 
 function App() {
   React.useEffect(() => {
     const getData = async () => {
-      const res = await axios.get("/api/meditations") // * <-- replace with your endpoint
+      const res = await axios.get('/api/meditations/')
       console.log(res.data)
     }
     getData()
