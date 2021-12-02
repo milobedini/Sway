@@ -5,8 +5,7 @@ from rest_framework import status
 
 from .models import Article
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
-
-from articles.serializers.ArticleSerializer import ArticleSerializer
+from articles.serializers.common import ArticleSerializer
 
 # Create your views here.
 

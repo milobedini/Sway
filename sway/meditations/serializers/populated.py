@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from jwt_auth.serializer import UserSerializer
-from .MeditationSerializer import MeditationSerializer
+from jwt_auth.serializers.common import UserSerializer
+from .common import MeditationSerializer
 
 
 class PopulatedMeditationSerializer(MeditationSerializer):

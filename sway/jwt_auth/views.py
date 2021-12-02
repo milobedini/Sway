@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 from django.contrib.auth import get_user_model
 from django.conf import settings
 import jwt
-from .serializer import UserSerializer
+from .serializers.common import UserSerializer
 
 User = get_user_model()
 

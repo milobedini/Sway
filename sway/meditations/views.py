@@ -5,8 +5,8 @@ from rest_framework.views import Response
 from rest_framework.views import status
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 from .models import Meditation
-from .serializers.MeditationSerializer import MeditationSerializer
-from .serializers.PopulatedMeditationSerializer import PopulatedMeditationSerializer
+from .serializers.common import MeditationSerializer
+from .serializers.populated import PopulatedMeditationSerializer
 
 # Create your views here.
 
