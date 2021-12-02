@@ -8,3 +8,6 @@ class Note(models.Model):
     text = models.TextField()
     owner = models.ForeignKey(
         "jwt_auth.User", related_name="notes", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Note {self.owner} {self.date}"
