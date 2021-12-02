@@ -23,12 +23,13 @@ class CommentListView(APIView):
 
 
 class CommentDetailView(APIView):
+    permission_classes = (IsAuthenticated, )
 
     def delete(self, request, pk):
         try:
             comment_to_delete = Comment.objects.get(pk=pk)
         except Comment.DoesNotExist:
-            raise NotFound()
+            raise NotFound(detail="Comment not found")
         if comment_to_delete.owner != request.user:
             raise PermissionDenied()
         comment_to_delete.delete()
