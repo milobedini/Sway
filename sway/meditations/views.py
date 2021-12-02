@@ -6,7 +6,6 @@ from rest_framework.views import status
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 from .models import Meditation
 from .serializers.common import MeditationSerializer
-from .serializers.populated import PopulatedMeditationSerializer
 
 # Create your views here.
 
@@ -23,7 +22,7 @@ class MeditationListView(APIView):
 
     def get(self, request):
         meditations = Meditation.objects.all()
-        serialized_meditations = PopulatedMeditationSerializer(
+        serialized_meditations = MeditationSerializer(
             meditations, many=True)
         return Response(serialized_meditations.data, status=status.HTTP_200_OK)
 
@@ -33,5 +32,5 @@ class MeditationDetailView(APIView):
 
     def get(self, request, pk):
         meditation = Meditation.objects.get(id=pk)
-        serialized_meditation = PopulatedMeditationSerializer(meditation)
+        serialized_meditation = MeditationSerializer(meditation)
         return Response(serialized_meditation.data, status=status.HTTP_200_OK)

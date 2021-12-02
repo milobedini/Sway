@@ -8,6 +8,7 @@ from django.contrib.auth import get_user_model
 from django.conf import settings
 import jwt
 from .serializers.common import UserSerializer
+from .serializers.populated import PopulatedUserSerializer
 from rest_framework.permissions import IsAuthenticated
 
 User = get_user_model()
@@ -47,12 +48,12 @@ class ProfileView(APIView):
 
     def get(self, request, pk):
         user = User.objects.get(id=pk)
-        serialized_user = UserSerializer(user)
+        serialized_user = PopulatedUserSerializer(user)
         return Response(serialized_user.data, status=status.HTTP_200_OK)
 
 
 class ProfileListView(APIView):
     def get(self, request):
         users = User.objects.all()
-        serialized_users = UserSerializer(users, many=True)
+        serialized_users = PopulatedUserSerializer(users, many=True)
         return Response(serialized_users.data, status=status.HTTP_200_OK)
