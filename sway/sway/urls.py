@@ -22,6 +22,6 @@ urlpatterns = [
     path('api/feed/', include('articles.urls')),
     path('api/comments/', include('comments.urls')),
     path('api/meditations/', include('meditations.urls')),
-    # path('api/notes/', include('notes.urls')),
+    path('api/notes/', include('notes.urls')),
     path('api/auth/', include('jwt_auth.urls')),
 ]
