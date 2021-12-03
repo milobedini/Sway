@@ -1,11 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const MeditationCard = ({ name, description, audio, category }) => {
+const MeditationCard = ({ id, name, description, audio, category }) => {
   return (
     <div>
-      <div>
-        <h2>{name}</h2>
-      </div>
+      <Link to={`/meditate/guided/${id}`}>
+        <div>
+          <h2>{name}</h2>
+        </div>
+      </Link>
       <div>
         <h4>{description}</h4>
       </div>
