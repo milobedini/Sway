@@ -5,6 +5,9 @@ import { getToken } from './helpers/auth'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav'
 import MeditationList from './pages/MeditationList'
+import Register from './pages/Register'
+import Login from './pages/Login'
+import Home from './pages/Home'
 
 function App() {
   // useEffect(() => {
@@ -31,7 +34,13 @@ function App() {
         <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <main>
           <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="/meditate/guided" element={<MeditationList />} />
+            <Route
+              path="/login"
+              element={<Login setIsLoggedIn={setIsLoggedIn} />}
+            />
+            <Route path="/register" element={<Register />} />
           </Routes>
         </main>
       </BrowserRouter>

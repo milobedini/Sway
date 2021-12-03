@@ -16,6 +16,9 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
     <nav className="nav">
       <ul>
         <li>
+          <Link to="/">Sway</Link>
+        </li>
+        <li>
           <Link to="/meditate/guided">Meditate</Link>
         </li>
         <li>
