@@ -8,7 +8,7 @@ const MeditationShow = () => {
   const [description, setDescription] = useState('')
   const [category, setCategory] = useState('')
   const [audio, setAudio] = useState('')
-  const [favouritedNumber, setFavouritedNumber] = useState()
+  const [favourited, setFavourited] = useState([])
   const { id } = useParams()
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const MeditationShow = () => {
       setDescription(res.data.description)
       setCategory(res.data.category)
       setAudio(res.data.audio)
-      setFavouritedNumber(res.data.favourited_by.length)
+      setFavourited(res.data.favourited_by)
     }
     getMeditation(id)
   }, [id])
@@ -30,7 +30,7 @@ const MeditationShow = () => {
       <p>{description}</p>
       <p>{category}</p>
       <audio>{audio}</audio>
-      <p>{favouritedNumber} users have saved this meditation.</p>
+      <p>{favourited.length} users have saved this meditation.</p>
     </div>
   )
 }

@@ -10,6 +10,8 @@ import Login from './pages/Login'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import MeditationShow from './pages/MeditationShow'
+import Feed from './pages/Feed'
+import ArticleShow from './pages/ArticleShow'
 
 function App() {
   // useEffect(() => {
@@ -39,6 +41,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/meditate/guided" element={<MeditationList />} />
             <Route path="/meditate/guided/:id" element={<MeditationShow />} />
+            <Route path="/feed" element={<Feed />} />
+            <Route path="/feed/:id" element={<ArticleShow />} />
             <Route
               path="/login"
               element={<Login setIsLoggedIn={setIsLoggedIn} />}
