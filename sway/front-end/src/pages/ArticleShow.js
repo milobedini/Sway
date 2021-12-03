@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import Comments from '../components/Comments'
 
 const ArticleShow = () => {
   const [title, setTitle] = useState('')
@@ -33,6 +34,9 @@ const ArticleShow = () => {
           <p>{views} views</p>
         </div>
         <div>{text}</div>
+      </div>
+      <div className="leave-comment">
+        <Comments id={id} />
       </div>
       <div className="comments">
         <h4>Comments ({comments.length})</h4>
