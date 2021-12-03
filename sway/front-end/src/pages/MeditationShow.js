@@ -28,7 +28,7 @@ const MeditationShow = () => {
     <div className="meditation-show">
       <h2>{name}</h2>
       <p>{description}</p>
-      <p>{category}</p>
+      <p>*{category}*</p>
       <audio>{audio}</audio>
       <p>{favourited.length} users have saved this meditation.</p>
     </div>

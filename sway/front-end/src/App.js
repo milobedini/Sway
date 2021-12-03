@@ -12,16 +12,11 @@ import NotFound from './pages/NotFound'
 import MeditationShow from './pages/MeditationShow'
 import Feed from './pages/Feed'
 import ArticleShow from './pages/ArticleShow'
+import Footer from './components/Footer'
+import Meditate from './pages/Meditate'
+import NotesList from './pages/NotesList'
 
 function App() {
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const res = await axios.get('/api/meditations/')
-  //     console.log(res.data)
-  //   }
-  //   getData()
-  // })
-
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
@@ -39,10 +34,12 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/meditate" element={<Meditate />} />
             <Route path="/meditate/guided" element={<MeditationList />} />
             <Route path="/meditate/guided/:id" element={<MeditationShow />} />
             <Route path="/feed" element={<Feed />} />
             <Route path="/feed/:id" element={<ArticleShow />} />
+            <Route path="/notes" element={<NotesList />} />
             <Route
               path="/login"
               element={<Login setIsLoggedIn={setIsLoggedIn} />}
@@ -51,6 +48,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
+        <Footer />
       </BrowserRouter>
     </>
   )

@@ -16,7 +16,7 @@ const MeditationCard = ({ id, name, description, audio, category }) => {
         <p>{audio}</p>
       </div>
       <div>
-        <h6>{category}</h6>
+        <h6>*{category}*</h6>
       </div>
     </div>
   )

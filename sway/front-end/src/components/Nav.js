@@ -19,7 +19,7 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
           <Link to="/">Sway</Link>
         </li>
         <li>
-          <Link to="/meditate/guided">Meditate</Link>
+          <Link to="/meditate">Meditate</Link>
         </li>
         <li>
           <Link to="/meditate/timer">Timer</Link>

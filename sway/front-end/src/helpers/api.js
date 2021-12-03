@@ -12,3 +12,16 @@ export const getAxiosRequestConfig = (url, data, method = 'post') => {
   console.log(config)
   return config
 }
+
+export const getNotes = (url, method = 'get') => {
+  const config = {
+    method,
+    url: '/api/notes/',
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+      'Content-Type': 'application/json',
+    },
+  }
+  console.log(config)
+  return config
+}
