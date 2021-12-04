@@ -18,7 +18,7 @@ const Login = ({ setIsLoggedIn }) => {
     setUsername(data.username)
     setIsLoggedIn(true)
     setIsError(false)
-    navigate('/meditate/guided')
+    navigate('/')
   }
 
   const handleError = (error) => {

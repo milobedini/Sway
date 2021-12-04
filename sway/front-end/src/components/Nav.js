@@ -1,5 +1,8 @@
 import { removeToken, removeUsername } from '../helpers/auth'
 import { Link, useNavigate } from 'react-router-dom'
+import logo from '../assets/Logo.svg'
+// import favicon1 from '../assets/Favicon 1.svg'
+// import favicon2 from '../assets/Favicon 2.svg'
 
 import React from 'react'
 
@@ -16,7 +19,9 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
     <nav className="nav">
       <ul>
         <li>
-          <Link to="/">Sway</Link>
+          <Link to="/">
+            <img className="logo" src={logo}></img>
+          </Link>
         </li>
         <li>
           <Link to="/meditate">Meditate</Link>
