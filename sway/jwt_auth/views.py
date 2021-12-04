@@ -48,6 +48,8 @@ class ProfileView(APIView):
 
     def get(self, request, pk):
         user = User.objects.get(id=pk)
+        if user != request.user:
+            raise PermissionDenied()
         serialized_user = PopulatedUserSerializer(user)
         return Response(serialized_user.data, status=status.HTTP_200_OK)
 

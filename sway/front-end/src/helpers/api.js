@@ -25,3 +25,16 @@ export const getNotes = (url, method = 'get') => {
   console.log(config)
   return config
 }
+
+export const getProfile = (id) => {
+  const config = {
+    method: 'get',
+    url: `/api/auth/profile/${id}`,
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+      'Content-Type': 'application/json',
+    },
+  }
+  console.log(config)
+  return config
+}

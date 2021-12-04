@@ -15,6 +15,7 @@ import ArticleShow from './pages/ArticleShow'
 import Footer from './components/Footer'
 import Meditate from './pages/Meditate'
 import NotesList from './pages/NotesList'
+import Profile from './pages/Profile'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -40,6 +41,7 @@ function App() {
             <Route path="/feed" element={<Feed />} />
             <Route path="/feed/:id" element={<ArticleShow />} />
             <Route path="/notes" element={<NotesList />} />
+            <Route path="/profile" element={<Profile />} />
             <Route
               path="/login"
               element={<Login setIsLoggedIn={setIsLoggedIn} />}
