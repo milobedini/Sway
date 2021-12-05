@@ -1,3 +1,5 @@
+@import '../../node_modules/bootstrap/dist/css/bootstrap.css';
+
 .home {
   text-align: center;
   font-family: 'Prompt', sans-serif;
@@ -42,6 +44,7 @@
   .go-meditate {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     color: white;
 
     p {
@@ -99,7 +102,7 @@
 
   .notes,
   .timer,
-  .progress {
+  .profile-progress {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -108,4 +111,33 @@
       height: 50px;
     }
   }
+}
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.med-button {
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  // font-weight: bold;
+  color: black;
+  background: white;
+  border: 1px solid coral;
+  box-shadow: 5px 5px 0 black, -5px -5px 0 black, -5px 5px 0 black,
+    5px -5px 0 black;
+  transition: 500ms ease-in-out;
+}
+
+.med-button:hover {
+  box-shadow: 20px 5px 0 black, -20px -5px 0 black;
+}
+
+.med-button:focus {
+  outline: none;
 }

@@ -6,9 +6,13 @@ const Meditate = () => {
     <>
       <div className="top-section">
         <Link to="/meditate/guided">
-          <button id="guided">Guided Meditations</button>
+          <button className="btn btn-info" id="guided">
+            Guided Meditations
+          </button>
         </Link>
-        <button id="timer">Meditation Timer</button>
+        <button id="timer" className="btn btn-info">
+          Meditation Timer
+        </button>
       </div>
       <div className="external-api">Quote here</div>
     </>

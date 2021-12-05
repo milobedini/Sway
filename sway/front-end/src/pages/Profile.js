@@ -51,7 +51,7 @@ const Profile = () => {
         Minutes in meditation:
         <p>{data.minutes}</p>
       </h4>
-      <h4>Your favourites:</h4>
+      <h4>Your favourites ({data.favourites.length}):</h4>
       <ul>
         {data.favourites.map((meditation) => (
           <li key={meditation.id}>

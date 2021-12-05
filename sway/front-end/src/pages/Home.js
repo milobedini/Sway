@@ -16,13 +16,19 @@ const Home = () => {
             <h2>Take a moment...</h2>
           </div>
           <div className="go-meditate">
-            <p>Meditate, or explore the rest of Sway.</p>
+            <div className="explore-sway">
+              <p>Meditate, or explore the rest of Sway.</p>
+            </div>
             <div className="meditation-links">
               <Link to="/meditate/guided/">
-                <button>Latest Meditation</button>
+                <button className="name noselect med-button">
+                  Latest Meditation
+                </button>
               </Link>
               <Link to="/meditate/guided/">
-                <button>Browse Meditations</button>
+                <button className="name noselect med-button">
+                  Browse Meditations
+                </button>
               </Link>
             </div>
           </div>
@@ -49,19 +55,19 @@ const Home = () => {
         <div className="notes">
           <Link to="/notes">
             <img src={cloudPic} />
-            <h4>Your personal scribblings...</h4>
+            <h5>Your personal scribblings...</h5>
           </Link>
         </div>
         <div className="timer">
           <Link to="/meditate/timer">
             <img src={timerPic} />
-            <h4>Meditation timer...</h4>
+            <h5>Meditation timer...</h5>
           </Link>
         </div>
-        <div className="progress">
+        <div className="profile-progress">
           <Link to="/profile">
             <img src={progressPic} />
-            <h4>Track your progress...</h4>
+            <h5>Track your progress...</h5>
           </Link>
         </div>
       </div>
