@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { getProfile } from '../helpers/api'
 import MeditationCard from '../components/MeditationCard'
 import { getUserId } from '../helpers/auth'
+import '../styles/profile.scss'
 
 const Profile = () => {
   const [data, setData] = useState({
@@ -35,31 +36,37 @@ const Profile = () => {
   }, [])
 
   return (
-    <div>
-      <h4>
-        Username
-        <p>{data.username}</p>
-      </h4>
-      <h4>
-        Profile Picture
-        <p>{data.profileImage}</p>
-      </h4>
-      <h4>
-        Your number of sessions:
-        <p>{data.sessions}</p>
-      </h4>
-      <h4>
-        Minutes in meditation:
-        <p>{data.minutes}</p>
-      </h4>
-      <h4>Your favourites ({data.favourites.length}):</h4>
-      <ul>
-        {data.favourites.map((meditation) => (
-          <li key={meditation.id}>
-            <MeditationCard {...meditation} />
-          </li>
-        ))}
-      </ul>
+    <div className="profile">
+      <div className="basic-info">
+        <h4>
+          Username
+          <p>{data.username}</p>
+        </h4>
+        <h4>
+          Profile Picture:
+          <p>{data.profileImage}</p>
+        </h4>
+      </div>
+      <div className="stats">
+        <h4>
+          Your number of sessions:
+          <p>{data.sessions}</p>
+        </h4>
+        <h4>
+          Minutes in meditation:
+          <p>{data.minutes}</p>
+        </h4>
+      </div>
+      <div className="profile-fav">
+        <h4>Your favourites ({data.favourites.length}):</h4>
+        <ul>
+          {data.favourites.map((meditation) => (
+            <li key={meditation.id}>
+              <MeditationCard {...meditation} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }

@@ -20,7 +20,7 @@ const NotesList = () => {
     getUserNotes()
   }, [])
   return (
-    <div>
+    <div className="note-list">
       <ul>
         {notes.map((note) => (
           <li key={note.id}>{<NoteCard {...note} />}</li>

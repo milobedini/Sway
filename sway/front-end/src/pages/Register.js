@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import '../styles/auth.scss'
 
 import React from 'react'
 import FormInput from '../components/FormInput'

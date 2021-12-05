@@ -29,15 +29,15 @@ nav a {
 }
 
 .logo {
-  filter: invert(52%) sepia(37%) saturate(6374%) hue-rotate(164deg)
-    brightness(98%) contrast(102%);
-
   height: 40px;
   width: 50px;
 }
 
 footer a {
   color: #e0e9f3;
+}
+.main-footer a:hover {
+  color: #18cdba;
 }
 
 .footer-logo {
@@ -62,14 +62,16 @@ footer a {
   align-items: center;
   justify-content: center;
 }
-.nav {
-  margin-bottom: 5rem;
-}
+
 main {
   min-height: 85vh;
 }
 
-.navbar {
+.navbar a {
   padding-top: 0;
   padding-left: 0;
+  color: #e0e9f3;
+}
+.navbar a:hover {
+  color: #18cdba;
 }

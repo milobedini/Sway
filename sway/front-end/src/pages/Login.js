@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { setToken, setUserId, setUsername } from '../helpers/auth'
 import axios from 'axios'
 import FormInput from '../components/FormInput'
+import '../styles/auth.scss'
 
 const Login = ({ setIsLoggedIn }) => {
   const [data, setData] = useState({

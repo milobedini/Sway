@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import ArticleCard from '../components/ArticleCard'
+import '../styles/feed.scss'
 
 const Feed = () => {
   const [feed, setFeed] = useState([])
@@ -14,7 +15,7 @@ const Feed = () => {
     getFeed()
   }, [])
   return (
-    <div>
+    <div className="feed">
       <ul>
         {feed.map((article) => (
           <li key={article.id}>

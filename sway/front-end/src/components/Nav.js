@@ -18,7 +18,7 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
   }
   return (
     <div className="container nav">
-      <nav className="navbar fixed-top navbar-expand-md navbar-light bg-white">
+      <nav className="navbar fixed-top navbar-expand-md  bg-dark">
         <Link to="/" className="navbar-brand">
           <img
             className="logo d-inline-block align-top"
@@ -36,7 +36,9 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon">
+            <i className="fas fa-bars" style={{ color: 'white' }}></i>
+          </span>
         </button>
         <div className="collapse navbar-collapse" id="toggleMobileMenu">
           <ul className="navbar-nav ms-auto text-center">
