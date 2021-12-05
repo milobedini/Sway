@@ -37,12 +37,13 @@ nav a {
 }
 
 footer a {
-  color: white;
+  color: #e0e9f3;
 }
 
 .footer-logo {
-  filter: invert(52%) sepia(37%) saturate(6374%) hue-rotate(164deg)
-    brightness(98%) contrast(102%);
+  background: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));
+  height: 40px;
+  width: 50px;
 }
 .hidden {
   display: none;

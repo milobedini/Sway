@@ -27,7 +27,7 @@ const Footer = () => {
             <div className="footer-logo col-sm navbar-brand">
               <span className="hidden">Footer</span>
               <img
-                className="logo d-inline-block align-top"
+                className="footer-logo d-inline-block align-top"
                 src={favicon2}
               ></img>
             </div>

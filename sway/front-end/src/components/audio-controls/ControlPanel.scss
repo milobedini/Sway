@@ -1,0 +1,22 @@
+.control-panel {
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.timer {
+  font-size: 10px;
+  font-weight: 200;
+  color: #eef6ff;
+}
+.timer-logo {
+  display: flex;
+  width: 100%;
+}
+.timer-logo img {
+  height: 50px;
+  width: 50px;
+  margin-left: 99%;
+  margin-bottom: -5%;
+  background: #0c1527;
+}
