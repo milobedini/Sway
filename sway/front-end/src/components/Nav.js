@@ -1,4 +1,4 @@
-import { removeToken, removeUsername } from '../helpers/auth'
+import { removeToken, removeUserId, removeUsername } from '../helpers/auth'
 import { Link, useNavigate } from 'react-router-dom'
 import logo from '../assets/Logo.svg'
 // import favicon1 from '../assets/Favicon 1.svg'
@@ -12,6 +12,7 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
   const handleLogout = () => {
     removeToken()
     removeUsername()
+    removeUserId()
     setIsLoggedIn(false)
     navigate('/')
   }

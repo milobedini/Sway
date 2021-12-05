@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { getProfile } from '../helpers/api'
 import MeditationCard from '../components/MeditationCard'
+import { getUserId } from '../helpers/auth'
 
 const Profile = () => {
   const [data, setData] = useState({
@@ -15,7 +16,7 @@ const Profile = () => {
 
   useEffect(() => {
     const getUserProfile = async () => {
-      const config = getProfile(1)
+      const config = getProfile(getUserId())
       try {
         const res = await axios(config)
         console.log(res.data)
