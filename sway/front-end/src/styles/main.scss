@@ -31,6 +31,7 @@ nav a {
 .logo {
   filter: invert(52%) sepia(37%) saturate(6374%) hue-rotate(164deg)
     brightness(98%) contrast(102%);
+
   height: 40px;
   width: 50px;
 }
@@ -61,8 +62,13 @@ footer a {
   justify-content: center;
 }
 .nav {
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
 }
 main {
   min-height: 85vh;
+}
+
+.navbar {
+  padding-top: 0;
+  padding-left: 0;
 }
