@@ -23,7 +23,7 @@ const ArticleShow = () => {
       console.log(res.data)
       setTitle(res.data.title)
       setCreated(res.data.created_at)
-      setViews(res.data.views)
+      setViews(res.data.views + 1)
       setText(res.data.text)
       setComments(res.data.comments)
       setAuthor(res.data.author)
@@ -31,10 +31,7 @@ const ArticleShow = () => {
     getArticle(id)
   }, [id])
 
-  // const fetchArticle = async (id) => {
-  //   const res = await axios.get(`/api/feed/${id}`)
-  //   console.log(res.data)
-  // }
+  // add view function here
 
   const handleDelete = async (commentId) => {
     console.log('deleting')
@@ -42,9 +39,6 @@ const ArticleShow = () => {
       const config = getAxiosDeleteConfig(`/api/comments/${commentId}/`)
       const res = await axios(config)
       console.log(res)
-      // if (res.status > 199 && res.status < 300) {
-      //   fetchArticle(id)
-      // }
     } catch (err) {
       console.log(err)
     }

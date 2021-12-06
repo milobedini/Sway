@@ -56,6 +56,7 @@ const MeditationShow = () => {
       }
     }
     getMeditation(id)
+    // eslint-disable-next-line
   }, [favIdArray.length, id, hasLiked])
 
   const handleFavourite = async () => {
@@ -130,6 +131,7 @@ const MeditationShow = () => {
       }
     }
     getUserProfile()
+    // eslint-disable-next-line
   }, [])
 
   const addSession = async () => {
