@@ -8,13 +8,23 @@ import ControlPanel from '../components/audio-controls/ControlPanel'
 import '../styles/audio-player.scss'
 import '../styles/med-show.scss'
 import { getUserId } from '../helpers/auth'
-import { getAxiosRequestConfig } from '../helpers/api'
+import { getAxiosRequestConfig, getProfile } from '../helpers/api'
 
 const MeditationShow = () => {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [category, setCategory] = useState('')
+  const [minutes, setMinutes] = useState(0)
+  const [sessions, setSessions] = useState(0)
   const { id } = useParams()
+
+  const [profileData, setProfileData] = useState({
+    username: '',
+    profileImage: '',
+    favourites: [],
+    sessions: '',
+    minutes: '',
+  })
 
   const [percentage, setPercentage] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -31,6 +41,10 @@ const MeditationShow = () => {
       setName(res.data.name)
       setDescription(res.data.description)
       setCategory(res.data.category)
+      setMinutes(res.data.minutes)
+      setSessions(res.data.sessions)
+      console.log(minutes)
+
       const usefulArray = []
       for (let i = 0; i < res.data.favourited_by.length; i++) {
         usefulArray.push(res.data.favourited_by[i].id)
@@ -96,6 +110,45 @@ const MeditationShow = () => {
     setPercentage(event.target.value)
   }
 
+  useEffect(() => {
+    const getUserProfile = async () => {
+      const config = getProfile(getUserId())
+      try {
+        const res = await axios(config)
+        console.log(res.data)
+        setProfileData({
+          username: res.data.username,
+          profileImage: res.data.profile_image,
+          favourites: res.data.favourites,
+          sessions: res.data.sessions,
+          minutes: res.data.minutes,
+        })
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getUserProfile()
+  }, [])
+
+  const addSession = async () => {
+    const currentUser = parseInt(getUserId())
+    const data = {
+      minutes: profileData.minutes + minutes,
+      sessions: profileData.sessions + sessions,
+    }
+    const config = getAxiosRequestConfig(
+      `/api/auth/profile/${currentUser}/`,
+      data,
+      'put'
+    )
+    try {
+      const res = await axios(config)
+      console.log(res)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   const play = () => {
     const audio = audioRef.current
     audio.volume = 0.9
@@ -103,6 +156,7 @@ const MeditationShow = () => {
     if (!isPlaying) {
       setIsPlaying(true)
       audio.play()
+      addSession()
     }
     if (isPlaying) {
       setIsPlaying(false)
