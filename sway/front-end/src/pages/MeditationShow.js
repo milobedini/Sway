@@ -14,28 +14,51 @@ const MeditationShow = () => {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [category, setCategory] = useState('')
-  const [favourited, setFavourited] = useState([])
   const { id } = useParams()
 
   const [percentage, setPercentage] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
   const [duration, setDuration] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
+  const [favIdArray, setFavIdArray] = useState([])
 
   const audioRef = useRef()
-
   useEffect(() => {
     const getMeditation = async (id) => {
       const res = await axios.get(`/api/meditations/${id}`)
-      console.log(res.data)
       setName(res.data.name)
       setDescription(res.data.description)
       setCategory(res.data.category)
-      setFavourited(res.data.favourited_by)
+      const usefulArray = []
+      for (let i = 0; i < res.data.favourited_by.length; i++) {
+        usefulArray.push(res.data.favourited_by[i].id)
+      }
+      setFavIdArray(usefulArray)
     }
     getMeditation(id)
-  }, [id])
+  }, [favIdArray.length, id])
 
+  const handleFavourite = async () => {
+    const currentUser = parseInt(getUserId())
+    const usefulArray = favIdArray
+    usefulArray.push(currentUser)
+    setFavIdArray(usefulArray)
+
+    const data = {
+      name: name,
+      description: description,
+      audio: 'blah',
+      category: category,
+      favourited_by: favIdArray,
+    }
+    const config = getAxiosRequestConfig(`/api/meditations/${id}/`, data, 'put')
+    try {
+      const res = await axios(config)
+      setFavIdArray(res.data.favourited_by)
+    } catch (err) {
+      console.log(err)
+    }
+  }
   const onChange = (event) => {
     const audio = audioRef.current
     audio.currentTime = (audio.duration / 100) * event.target.value
@@ -66,28 +89,6 @@ const MeditationShow = () => {
     setCurrentTime(time.toFixed(2))
   }
 
-  const handleFavourite = async (event) => {
-    event.preventDefault()
-    const favArray = favourited
-    const currentUser = getUserId()
-    favArray.push(currentUser)
-    setFavourited(favArray)
-    const data = {
-      name: name,
-      description: description,
-      audio: 'blah',
-      category: category,
-      favourited_by: favourited,
-    }
-    const config = getAxiosRequestConfig(`/api/meditations/${id}/`, data, 'put')
-    try {
-      const res = await axios(config)
-      console.log(res.data)
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
   return (
     <div className="meditation-show">
       <h2>{name}</h2>
@@ -113,7 +114,7 @@ const MeditationShow = () => {
           />
         </div>
       </div>
-      <p>{favourited.length} users have saved this meditation.</p>
+      <p>{favIdArray.length} users have saved this meditation.</p>
     </div>
   )
 }
