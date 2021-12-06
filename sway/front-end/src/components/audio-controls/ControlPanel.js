@@ -9,6 +9,7 @@ const ControlPanel = ({
   duration,
   currentTime,
   handleFavourite,
+  hasLiked,
 }) => {
   function timeConversion(seconds) {
     if (!seconds) return '00m 00s'
@@ -48,12 +49,16 @@ const ControlPanel = ({
           <div className="timer">{timeConversion(duration)}</div>
         </div>
         <div className="timer-logo">
-          <button className="btn" onClick={handleFavourite}>
-            <i
-              className="fas fa-bookmark save fa-2x"
-              style={{ color: '#18cdba' }}
-            ></i>
-          </button>
+          {!hasLiked ? (
+            <button className="btn" onClick={handleFavourite}>
+              <i
+                className="fas fa-bookmark save fa-2x"
+                style={{ color: '#18cdba' }}
+              ></i>
+            </button>
+          ) : (
+            <button className="btn">dislike</button>
+          )}
           <img src={logo}></img>
         </div>
       </div>
