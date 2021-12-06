@@ -2,9 +2,38 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import MeditationCard from '../components/MeditationCard'
+import '../styles/med-list.scss'
+import FilterButton from '../components/FilterButton'
+
+const filterMap = {
+  All: () => true,
+  Breath: (meditation) => meditation.category.includes('Breath'),
+  Walking: (meditation) => meditation.category.includes('Walking'),
+  Mindfulness: (meditation) => meditation.category.includes('Mindfulness'),
+  Vipassana: (meditation) => meditation.category.includes('Vipassana'),
+}
+const filterNames = Object.keys(filterMap)
 
 const MeditationList = () => {
   const [meditations, setMeditations] = useState([])
+  const [filter, setFilter] = useState('All')
+
+  const filterList = filterNames.map((name) => (
+    <FilterButton
+      key={name}
+      name={name}
+      isPressed={name === filter}
+      setFilter={setFilter}
+    />
+  ))
+
+  const meditationList = meditations
+    .filter(filterMap[filter])
+    .map((meditation) => (
+      <li key={meditation.id}>
+        <MeditationCard {...meditation} />
+      </li>
+    ))
 
   useEffect(() => {
     const getMeditations = async () => {
@@ -15,14 +44,14 @@ const MeditationList = () => {
     getMeditations()
   }, [])
   return (
-    <div>
-      <ul>
-        {meditations.map((meditation) => (
-          <li key={meditation.id}>
-            <MeditationCard {...meditation} />
-          </li>
-        ))}
-      </ul>
+    <div className="med-list-page">
+      <div className="categories">
+        <h5>Choose a Category:</h5>
+        <ul>{filterList}</ul>
+      </div>
+      <div className="med-list">
+        <ul>{meditationList}</ul>
+      </div>
     </div>
   )
 }

@@ -1,0 +1,42 @@
+.med-list-page {
+  padding-top: 5rem;
+  display: flex;
+  justify-content: space-around;
+
+  h2 {
+    font-weight: 500;
+  }
+  h4 {
+    font-weight: 300;
+  }
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 100px;
+  h5 {
+    text-align: left;
+  }
+  ul {
+    max-width: 3rem;
+    padding-left: 0;
+  }
+  button {
+    background-color: #0c1527;
+    color: #e0e9f3;
+    border-radius: 75px;
+    margin: 10px 0 10px 0;
+  }
+  button:hover {
+    color: #18cdba;
+  }
+}
+.med-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 70%;
+}

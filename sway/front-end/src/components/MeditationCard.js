@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const MeditationCard = ({ id, name, description, audio, category }) => {
+const MeditationCard = ({ id, name, description, category }) => {
   return (
     <div>
       <Link to={`/meditate/guided/${id}`}>
@@ -13,10 +13,7 @@ const MeditationCard = ({ id, name, description, audio, category }) => {
         <h4>{description}</h4>
       </div>
       <div>
-        <p>{audio}</p>
-      </div>
-      <div>
-        <h6>*{category}*</h6>
+        <h4>*{category}*</h4>
       </div>
     </div>
   )

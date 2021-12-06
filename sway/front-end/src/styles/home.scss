@@ -129,16 +129,17 @@
   height: 50px;
   cursor: pointer;
   font-weight: 400;
-  color: black;
-  background: white;
-  border: 2px solid rgb(42, 185, 201);
-  box-shadow: 3px 3px 0 black, -3px -3px 0 black, -3px 3px 0 black,
-    3px -3px 0 black;
+  color: #e0e9f3;
+  background: #0c1527;
+  border: 2px solid #18cdba;
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 #0c1527, -3px -3px 0 #0c1527, -3px 3px 0 #0c1527,
+    3px -3px 0 #0c1527;
   transition: 500ms ease-in-out;
 }
 
 .med-button:hover {
-  box-shadow: 20px 5px 0 black, -20px -5px 0 rgb(42, 185, 201);
+  box-shadow: 20px 5px 0 #1d366d, -20px -5px 0 #18cdba;
 }
 
 .med-button:focus {
