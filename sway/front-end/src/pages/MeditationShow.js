@@ -41,13 +41,38 @@ const MeditationShow = () => {
       }
     }
     getMeditation(id)
-  }, [favIdArray.length, id])
+  }, [favIdArray.length, id, hasLiked])
 
   const handleFavourite = async () => {
     setHasLiked(true)
     const currentUser = parseInt(getUserId())
     const usefulArray = favIdArray
     usefulArray.push(currentUser)
+    setFavIdArray(usefulArray)
+
+    const data = {
+      name: name,
+      description: description,
+      audio: 'blah',
+      category: category,
+      favourited_by: favIdArray,
+    }
+    const config = getAxiosRequestConfig(`/api/meditations/${id}/`, data, 'put')
+    try {
+      const res = await axios(config)
+      setFavIdArray(res.data.favourited_by)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  const handleRemove = async () => {
+    setHasLiked(false)
+    const currentUser = parseInt(getUserId())
+    const usefulArray = favIdArray
+    const index = usefulArray.indexOf(currentUser)
+    if (index > -1) {
+      usefulArray.splice(index, 1)
+    }
     setFavIdArray(usefulArray)
 
     const data = {
@@ -117,6 +142,7 @@ const MeditationShow = () => {
             duration={duration}
             currentTime={currentTime}
             handleFavourite={handleFavourite}
+            handleRemove={handleRemove}
             hasLiked={hasLiked}
           />
         </div>

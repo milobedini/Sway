@@ -9,6 +9,7 @@ const ControlPanel = ({
   duration,
   currentTime,
   handleFavourite,
+  handleRemove,
   hasLiked,
 }) => {
   function timeConversion(seconds) {
@@ -57,7 +58,12 @@ const ControlPanel = ({
               ></i>
             </button>
           ) : (
-            <button className="btn">dislike</button>
+            <button className="btn" onClick={handleRemove}>
+              <i
+                className="fas fa-minus-square fa-2x"
+                style={{ color: '#18cdba' }}
+              ></i>
+            </button>
           )}
           <img src={logo}></img>
         </div>
