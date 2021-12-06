@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { getNotes } from '../helpers/api'
 import NoteCard from '../components/NoteCard'
+import '../styles/note-list.scss'
 const NotesList = () => {
   const [notes, setNotes] = useState([])
   //   const [dates, setDates] = useState([])

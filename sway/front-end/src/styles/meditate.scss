@@ -1,3 +1,14 @@
 .med-wrapper {
-  padding-top: 3rem;
+  padding-top: 5rem;
+  display: flex;
+  justify-content: space-evenly;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 850px;
+  background-image: url('../images/medhome.jpg');
+  button {
+    background: #0c1527;
+    color: #e0e9f3;
+  }
 }

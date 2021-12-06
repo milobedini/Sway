@@ -6,14 +6,14 @@ const MeditationCard = ({ id, name, description, category }) => {
     <div>
       <Link to={`/meditate/guided/${id}`}>
         <div>
-          <h2>{name}</h2>
+          <h3>{name}</h3>
         </div>
       </Link>
       <div>
-        <h4>{description}</h4>
+        <h5>{description}</h5>
       </div>
       <div>
-        <h4>*{category}*</h4>
+        <p>*{category}*</p>
       </div>
     </div>
   )
