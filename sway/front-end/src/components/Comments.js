@@ -8,16 +8,6 @@ const Comments = ({ id }) => {
     article: parseInt(id),
   })
 
-  const handleSubmit = async () => {
-    const config = getAxiosRequestConfig('/api/comments/', data)
-    try {
-      const res = await axios(config)
-      console.log(res.data)
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
   const handleFormChange = async (event) => {
     const { name, value } = event.target
     setData({
@@ -25,6 +15,17 @@ const Comments = ({ id }) => {
       [name]: value,
     })
     console.log(data)
+  }
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    const config = getAxiosRequestConfig('/api/comments/', data)
+    try {
+      const res = await axios(config)
+      console.log(res.data)
+    } catch (err) {
+      console.log(err)
+    }
+    window.location.reload()
   }
   const formInputProps = { data: data, handleFormChange }
 

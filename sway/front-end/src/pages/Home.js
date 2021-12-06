@@ -16,9 +16,9 @@ const Home = () => {
             <h2>Take a moment...</h2>
           </div>
           <div className="go-meditate">
-            <div className="explore-sway">
+            {/* <div className="explore-sway">
               <p>Meditate, or explore the rest of Sway.</p>
-            </div>
+            </div> */}
             <div className="meditation-links">
               <Link to="/meditate/guided/">
                 <button className="name noselect med-button">

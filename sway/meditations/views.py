@@ -29,3 +29,8 @@ class MeditationDetailView(APIView):
         meditation = Meditation.objects.get(id=pk)
         serialized_meditation = PopulatedMeditationSerializer(meditation)
         return Response(serialized_meditation.data, status=status.HTTP_200_OK)
+
+    # def put(self, request, pk):
+    #     try:
+    #         med_to_fav = Meditation.objects.get(pk=pk)
+    #         request.data.favourited_by.append(request.user.id)

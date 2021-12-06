@@ -32,6 +32,8 @@ const ControlPanel = ({ play, isPlaying, duration, currentTime }) => {
       return `${min}m ${sec}s`
     }
   }
+
+  // const handleFavourite = async (event) => {}
   return (
     <>
       <div className="control-panel-wrapper">
@@ -41,6 +43,12 @@ const ControlPanel = ({ play, isPlaying, duration, currentTime }) => {
           <div className="timer">{timeConversion(duration)}</div>
         </div>
         <div className="timer-logo">
+          <button className="btn">
+            <i
+              className="fas fa-bookmark save fa-2x"
+              style={{ color: '#18cdba' }}
+            ></i>
+          </button>
           <img src={logo}></img>
         </div>
       </div>

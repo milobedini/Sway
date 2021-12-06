@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import Comments from '../components/Comments'
+import '../styles/article.scss'
 
 const ArticleShow = () => {
   const [title, setTitle] = useState('')
