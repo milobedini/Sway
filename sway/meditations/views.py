@@ -13,6 +13,7 @@ from jwt_auth.serializers.populated import PopulatedUserSerializer
 from .models import Meditation
 from .serializers.populated import PopulatedMeditationSerializer
 from .serializers.common import MeditationSerializer
+from .serializers.favourite import FavouriteMeditationSerializer
 
 # Create your views here.
 
@@ -38,20 +39,18 @@ class MeditationDetailView(APIView):
     def put(self, request, pk):
         try:
             med_to_fav = Meditation.objects.get(pk=pk)
-            # print(user_to_add)
-            # user_id = request.user.id
-            request.data["owner"] = request.user.id
-            request.data["name"] = med_to_fav.name
-            request.data["description"] = med_to_fav.description
-            request.data["audio"] = med_to_fav.audio
-            request.data["category"] = med_to_fav.category
-
+            # request.data['name'] = med_to_fav.name
+            # request.data['description'] = med_to_fav.description
+            # request.data['audio'] = med_to_fav.audio
+            # request.data['category'] = med_to_fav.category
+            # request.data['favourited_by'] = request.data
+            print(request.data)
         except Meditation.DoesNotExist:
             raise NotFound(detail="Meditation not found")
-        serialized_meditation = PopulatedMeditationSerializer(
+        serialized_med = FavouriteMeditationSerializer(
             med_to_fav, data=request.data)
-        if serialized_meditation.is_valid():
-            serialized_meditation.save()
-            return Response(serialized_meditation.data, status=status.HTTP_202_ACCEPTED)
+        if serialized_med.is_valid():
+            serialized_med.save()
+            return Response(serialized_med.data, status=status.HTTP_201_CREATED)
         else:
-            return Response(serialized_meditation.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+            return Response(serialized_med.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)

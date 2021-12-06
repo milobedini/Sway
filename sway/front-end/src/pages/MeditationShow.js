@@ -7,6 +7,8 @@ import anapana from '../audio/anapana.mp3'
 import ControlPanel from '../components/audio-controls/ControlPanel'
 import '../styles/audio-player.scss'
 import '../styles/med-show.scss'
+import { getUserId } from '../helpers/auth'
+import { getAxiosRequestConfig } from '../helpers/api'
 
 const MeditationShow = () => {
   const [name, setName] = useState('')
@@ -64,6 +66,28 @@ const MeditationShow = () => {
     setCurrentTime(time.toFixed(2))
   }
 
+  const handleFavourite = async (event) => {
+    event.preventDefault()
+    const favArray = favourited
+    const currentUser = getUserId()
+    favArray.push(currentUser)
+    setFavourited(favArray)
+    const data = {
+      name: name,
+      description: description,
+      audio: 'blah',
+      category: category,
+      favourited_by: favourited,
+    }
+    const config = getAxiosRequestConfig(`/api/meditations/${id}/`, data, 'put')
+    try {
+      const res = await axios(config)
+      console.log(res.data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
     <div className="meditation-show">
       <h2>{name}</h2>
@@ -85,6 +109,7 @@ const MeditationShow = () => {
             isPlaying={isPlaying}
             duration={duration}
             currentTime={currentTime}
+            handleFavourite={handleFavourite}
           />
         </div>
       </div>

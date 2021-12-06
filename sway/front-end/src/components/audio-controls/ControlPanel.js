@@ -3,7 +3,13 @@ import Button from './Button'
 import './ControlPanel.scss'
 import logo from '../../assets/Favicon 2.svg'
 
-const ControlPanel = ({ play, isPlaying, duration, currentTime }) => {
+const ControlPanel = ({
+  play,
+  isPlaying,
+  duration,
+  currentTime,
+  handleFavourite,
+}) => {
   function timeConversion(seconds) {
     if (!seconds) return '00m 00s'
 
@@ -33,7 +39,6 @@ const ControlPanel = ({ play, isPlaying, duration, currentTime }) => {
     }
   }
 
-  // const handleFavourite = async (event) => {}
   return (
     <>
       <div className="control-panel-wrapper">
@@ -43,7 +48,7 @@ const ControlPanel = ({ play, isPlaying, duration, currentTime }) => {
           <div className="timer">{timeConversion(duration)}</div>
         </div>
         <div className="timer-logo">
-          <button className="btn">
+          <button className="btn" onClick={handleFavourite}>
             <i
               className="fas fa-bookmark save fa-2x"
               style={{ color: '#18cdba' }}
