@@ -38,3 +38,15 @@ export const getProfile = (id) => {
   console.log(config)
   return config
 }
+
+export const getAxiosDeleteConfig = (url, method = 'delete') => {
+  const config = {
+    method,
+    url: url,
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+      'Content-Type': 'application/json',
+    },
+  }
+  return config
+}

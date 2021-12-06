@@ -8,6 +8,8 @@ class Article(models.Model):
     title = models.CharField(max_length=200)
     views = models.IntegerField(default=0)
     text = models.TextField()
+    author = models.ForeignKey(
+        "jwt_auth.User", related_name="author", on_delete=models.CASCADE)
 
     def __str__(self):
         return "Article: " + self.title

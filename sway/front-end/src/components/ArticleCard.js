@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const ArticleCard = ({ id, title, views, createdAt }) => {
+const ArticleCard = ({ id, title, views, createdAt, author }) => {
   return (
     <div>
       <Link to={`/feed/${id}`}>
@@ -11,7 +11,9 @@ const ArticleCard = ({ id, title, views, createdAt }) => {
       </Link>
       <div>
         <h4>{views} views</h4>
-        <h4>Posted on {createdAt}</h4>
+        <h4>
+          Posted on {createdAt} by {author.username}
+        </h4>
       </div>
     </div>
   )

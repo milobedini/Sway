@@ -16,6 +16,7 @@ import Footer from './components/Footer'
 import Meditate from './pages/Meditate'
 import NotesList from './pages/NotesList'
 import Profile from './pages/Profile'
+import PostThread from './pages/PostThread'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -40,6 +41,7 @@ function App() {
             <Route path="/meditate/guided/:id" element={<MeditationShow />} />
             <Route path="/feed" element={<Feed />} />
             <Route path="/feed/:id" element={<ArticleShow />} />
+            <Route path="/feed/new" element={<PostThread />} />
             <Route path="/notes" element={<NotesList />} />
             <Route path="/profile" element={<Profile />} />
             <Route

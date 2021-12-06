@@ -56,7 +56,7 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
               </Link>
             </li>
             <Link to="/feed" className="nav-link">
-              Feed
+              Community
             </Link>
 
             {isLoggedIn ? (

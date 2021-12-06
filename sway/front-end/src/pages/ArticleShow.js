@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import Comments from '../components/Comments'
 import '../styles/article.scss'
+import { getAxiosDeleteConfig } from '../helpers/api'
+import { getUsername } from '../helpers/auth'
 
 const ArticleShow = () => {
   const [title, setTitle] = useState('')
@@ -11,7 +13,9 @@ const ArticleShow = () => {
   const [views, setViews] = useState()
   const [text, setText] = useState('')
   const [comments, setComments] = useState([])
+  const [author, setAuthor] = useState('')
   const { id } = useParams()
+  const currentUser = getUsername()
 
   useEffect(() => {
     const getArticle = async (id) => {
@@ -22,22 +26,41 @@ const ArticleShow = () => {
       setViews(res.data.views)
       setText(res.data.text)
       setComments(res.data.comments)
+      setAuthor(res.data.author)
     }
     getArticle(id)
   }, [id])
+
+  // const fetchArticle = async (id) => {
+  //   const res = await axios.get(`/api/feed/${id}`)
+  //   console.log(res.data)
+  // }
+
+  const handleDelete = async (commentId) => {
+    console.log('deleting')
+    try {
+      const config = getAxiosDeleteConfig(`/api/comments/${commentId}/`)
+      const res = await axios(config)
+      console.log(res)
+      // if (res.status > 199 && res.status < 300) {
+      //   fetchArticle(id)
+      // }
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   return (
     <>
       <div className="article-show">
         <h2>{title}</h2>
         <div>
-          <p>Posted on {created}</p>
+          <p>
+            Posted on {created} by {author.username}
+          </p>
           <p>{views} views</p>
         </div>
         <div>{text}</div>
-      </div>
-      <div className="leave-comment">
-        <Comments id={id} />
       </div>
       <div className="comments">
         <h4>Comments ({comments.length})</h4>
@@ -55,9 +78,17 @@ const ArticleShow = () => {
                   <div>
                     <p>{comment.created_at}</p>
                   </div>
+                  <div>
+                    {comment.owner.username === currentUser ? (
+                      <button onClick={handleDelete(comment.id)}>Delete</button>
+                    ) : null}
+                  </div>
                 </li>
               )
             })}
+            <div className="leave-comment">
+              <Comments id={id} />
+            </div>
           </ul>
         </div>
       </div>

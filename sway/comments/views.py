@@ -14,9 +14,6 @@ class CommentListView(APIView):
     permission_classes = (IsAuthenticated, )
 
     def post(self, request):
-        print(request.data)
-        print(request.user)
-        # print(request.data["owner"]) currently doesn't find the user's id from the request.
         request.data["owner"] = request.user.id
         print(request.data)
         comment_to_create = CommentSerializer(data=request.data)

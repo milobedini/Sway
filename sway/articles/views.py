@@ -4,21 +4,29 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from .models import Article
-# from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
-# from articles.serializers.common import ArticleSerializer
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
+from articles.serializers.common import ArticleSerializer
 from .serializers.populated import PopulatedArticleSerializer
 
 # Create your views here.
 
 
 class ArticleListView(APIView):
-    # permission_classes = (IsAuthenticatedOrReadOnly,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
 
     def get(self, request):
         articles = Article.objects.all()
         serialized_articles = PopulatedArticleSerializer(
             articles, many=True)
         return Response(serialized_articles.data, status=status.HTTP_200_OK)
+
+    def post(self, request):
+        request.data["author"] = request.user.id
+        post_to_create = ArticleSerializer(data=request.data)
+        if post_to_create.is_valid():
+            post_to_create.save()
+            return Response(post_to_create.data, status=status.HTTP_201_CREATED)
+        return Response(post_to_create.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
 
 class ArticleDetailView(APIView):

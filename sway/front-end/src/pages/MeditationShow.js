@@ -38,6 +38,7 @@ const MeditationShow = () => {
     const getMeditation = async (id) => {
       const user = parseInt(getUserId())
       const res = await axios.get(`/api/meditations/${id}`)
+      console.log(res)
       setName(res.data.name)
       setDescription(res.data.description)
       setCategory(res.data.category)
@@ -123,6 +124,7 @@ const MeditationShow = () => {
           sessions: res.data.sessions,
           minutes: res.data.minutes,
         })
+        console.log(profileData)
       } catch (err) {
         console.log(err)
       }
@@ -132,6 +134,7 @@ const MeditationShow = () => {
 
   const addSession = async () => {
     const currentUser = parseInt(getUserId())
+    console.log(minutes, sessions)
     const data = {
       minutes: profileData.minutes + minutes,
       sessions: profileData.sessions + sessions,
@@ -178,7 +181,9 @@ const MeditationShow = () => {
     <div className="meditation-show">
       <h2>{name}</h2>
       <p>{description}</p>
-      <p>*{category}*</p>
+      <div className="categories">
+        <p>*{category}*</p>
+      </div>
       <div className="audio-container">
         <div className="audio-player">
           <Slider onChange={onChange} percentage={percentage} />
