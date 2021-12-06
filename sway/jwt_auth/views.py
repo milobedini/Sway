@@ -1,8 +1,9 @@
+from django.http.request import HttpRequest
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.exceptions import PermissionDenied
+from rest_framework.exceptions import NotFound, PermissionDenied
 from datetime import datetime, timedelta
 from django.contrib.auth import get_user_model
 from django.conf import settings
@@ -10,6 +11,7 @@ import jwt
 from .serializers.common import UserSerializer
 from .serializers.populated import PopulatedUserSerializer
 from rest_framework.permissions import IsAuthenticated
+from .serializers.edit import EditSerializer
 
 User = get_user_model()
 
@@ -54,6 +56,18 @@ class ProfileView(APIView):
             raise PermissionDenied()
         serialized_user = PopulatedUserSerializer(user)
         return Response(serialized_user.data, status=status.HTTP_200_OK)
+
+    def put(self, request, pk):
+
+        user_to_edit = User.objects.get(id=pk)
+        edited_user = EditSerializer(user_to_edit, data=request.data)
+        if user_to_edit != request.user:
+            raise PermissionDenied()
+        if edited_user.is_valid():
+            edited_user.save()
+            return Response(edited_user.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(edited_user.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
 
 class ProfileListView(APIView):

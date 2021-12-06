@@ -39,11 +39,6 @@ class MeditationDetailView(APIView):
     def put(self, request, pk):
         try:
             med_to_fav = Meditation.objects.get(pk=pk)
-            # request.data['name'] = med_to_fav.name
-            # request.data['description'] = med_to_fav.description
-            # request.data['audio'] = med_to_fav.audio
-            # request.data['category'] = med_to_fav.category
-            # request.data['favourited_by'] = request.data
             print(request.data)
         except Meditation.DoesNotExist:
             raise NotFound(detail="Meditation not found")
