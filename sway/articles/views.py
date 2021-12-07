@@ -8,7 +8,6 @@ from .models import Article
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 from articles.serializers.common import ArticleSerializer
 from .serializers.populated import PopulatedArticleSerializer
-from .serializers.viewonly import ArticleViewOnlySerializer
 from django.db.models import F
 
 # Create your views here.

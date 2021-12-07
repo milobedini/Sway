@@ -3,7 +3,6 @@ import { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import Slider from '../components/Slider'
-import anapana from '../audio/anapana.mp3'
 import ControlPanel from '../components/audio-controls/ControlPanel'
 import '../styles/audio-player.scss'
 import '../styles/med-show.scss'
@@ -16,6 +15,7 @@ const MeditationShow = () => {
   const [category, setCategory] = useState('')
   const [minutes, setMinutes] = useState(0)
   const [sessions, setSessions] = useState(0)
+  const [audio, setAudio] = useState('')
   const { id } = useParams()
 
   const [profileData, setProfileData] = useState({
@@ -44,6 +44,7 @@ const MeditationShow = () => {
       setCategory(res.data.category)
       setMinutes(res.data.minutes)
       setSessions(res.data.sessions)
+      setAudio(res.data.audio)
       console.log(minutes)
 
       const usefulArray = []
@@ -191,7 +192,8 @@ const MeditationShow = () => {
           <Slider onChange={onChange} percentage={percentage} />
           <audio
             ref={audioRef}
-            src={anapana}
+            // src={anapana}
+            src={audio}
             onLoadedData={(event) => {
               setDuration(event.currentTarget.duration.toFixed(2))
             }}
