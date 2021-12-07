@@ -22,7 +22,8 @@ class MeditationListView(APIView):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     def get(self, request):
-        meditations = Meditation.objects.all()
+        meditations = Meditation.objects.order_by('-created_at').all()
+
         serialized_meditations = PopulatedMeditationSerializer(
             meditations, many=True)
         return Response(serialized_meditations.data, status=status.HTTP_200_OK)
@@ -49,3 +50,13 @@ class MeditationDetailView(APIView):
             return Response(serialized_med.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serialized_med.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+
+class LatestMeditationView(APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+    def get(self, request):
+        sorted_meditations = Meditation.objects.order_by('-created_at').all()
+        meditation = sorted_meditations.first()
+        serialized_meditation = PopulatedMeditationSerializer(meditation)
+        return Response(serialized_meditation.data, status=status.HTTP_200_OK)

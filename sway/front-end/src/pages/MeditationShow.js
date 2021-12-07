@@ -70,7 +70,7 @@ const MeditationShow = () => {
     const data = {
       name: name,
       description: description,
-      audio: 'blah',
+      audio: audio,
       category: category,
       favourited_by: favIdArray,
     }
@@ -95,7 +95,7 @@ const MeditationShow = () => {
     const data = {
       name: name,
       description: description,
-      audio: 'blah',
+      audio: audio,
       category: category,
       favourited_by: favIdArray,
     }

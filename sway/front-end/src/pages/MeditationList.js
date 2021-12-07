@@ -10,7 +10,10 @@ const filterMap = {
   Breath: (meditation) => meditation.category.includes('Breath'),
   Mindfulness: (meditation) => meditation.category.includes('Mindfulness'),
   Scan: (meditation) => meditation.category.includes('Scan'),
+  Sleep: (meditation) => meditation.category.includes('Sleep'),
   Vipassana: (meditation) => meditation.category.includes('Vipassana'),
+  Shorter: (meditation) => meditation.minutes <= 10,
+  Longer: (meditation) => meditation.minutes > 10,
 }
 const filterNames = Object.keys(filterMap)
 

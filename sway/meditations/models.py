@@ -10,6 +10,7 @@ class Meditation(models.Model):
     category = models.CharField(max_length=100)
     minutes = models.SmallIntegerField()
     sessions = models.SmallIntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return "Meditation " + self.name
