@@ -6,7 +6,7 @@ import SettingsContext from '../components/timer/SettingsContext'
 
 const TimerPage = () => {
   const [showSettings, setShowSettings] = useState(false)
-  const [medMinutes, setMedMinutes] = useState(10)
+  const [meditationMinutes, setMeditationMinutes] = useState(10)
 
   return (
     <div className="timer-container">
@@ -15,8 +15,8 @@ const TimerPage = () => {
           value={{
             showSettings,
             setShowSettings,
-            meditationMinutes: medMinutes,
-            setMedMinutes,
+            meditationMinutes,
+            setMeditationMinutes,
           }}
         >
           {showSettings ? <TimerSettings /> : <Timer />}

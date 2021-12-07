@@ -14,7 +14,7 @@ const TimerSettings = () => {
         thumbClassName={'timer-thumb'}
         trackClassName={'timer-track'}
         value={settingsInfo.meditationMinutes}
-        onChange={(newValue) => settingsInfo.setMedMinutes(newValue)}
+        onChange={(newValue) => settingsInfo.setMeditationMinutes(newValue)}
         min={1}
         max={60}
       />
