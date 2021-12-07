@@ -10,7 +10,7 @@ import { getUsername } from '../helpers/auth'
 const ArticleShow = () => {
   const [title, setTitle] = useState('')
   const [created, setCreated] = useState('')
-  const [views, setViews] = useState()
+  const [views, setViews] = useState(0)
   const [text, setText] = useState('')
   const [comments, setComments] = useState([])
   const [author, setAuthor] = useState('')
@@ -24,7 +24,8 @@ const ArticleShow = () => {
       console.log(res.data)
       setTitle(res.data.title)
       setCreated(res.data.created_at)
-      setViews(res.data.views + 1)
+      setViews(res.data.views)
+      console.log(views)
       setText(res.data.text)
       setComments(res.data.comments)
       setAuthor(res.data.author)
@@ -32,19 +33,17 @@ const ArticleShow = () => {
     getArticle(id)
   }, [id])
 
-  // add view function here
-
   const handleCommentDelete = async (commentId) => {
     console.log('deleting')
     try {
       const config = getAxiosDeleteConfig(`/api/comments/${commentId}/`)
       const res = await axios(config)
       console.log(res)
+      window.location.reload()
     } catch (err) {
       console.log(err)
     }
   }
-  console.log(author)
 
   const handlePostDelete = async () => {
     try {
@@ -100,7 +99,7 @@ const ArticleShow = () => {
                   </div>
                   <div>
                     {comment.owner.username === currentUser ? (
-                      <button onClick={handleCommentDelete(comment.id)}>
+                      <button onClick={() => handleCommentDelete(comment.id)}>
                         Delete
                       </button>
                     ) : null}

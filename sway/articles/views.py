@@ -8,6 +8,8 @@ from .models import Article
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 from articles.serializers.common import ArticleSerializer
 from .serializers.populated import PopulatedArticleSerializer
+from .serializers.viewonly import ArticleViewOnlySerializer
+from django.db.models import F
 
 # Create your views here.
 
@@ -35,7 +37,10 @@ class ArticleDetailView(APIView):
 
     def get(self, request, pk):
         article = Article.objects.get(id=pk)
-        serialized_article = PopulatedArticleSerializer(article)
+        article.views = F("views") + 1
+        article.save(update_fields=["views"])
+        updated_article = Article.objects.get(id=pk)
+        serialized_article = PopulatedArticleSerializer(updated_article)
         return Response(serialized_article.data, status=status.HTTP_200_OK)
 
     def delete(self, request, pk):
@@ -54,6 +59,18 @@ class ArticleDetailView(APIView):
         if post_to_update.author != request.user:
             raise PermissionDenied()
         edited_post = ArticleSerializer(post_to_update, data=request.data)
+        if edited_post.is_valid():
+            edited_post.save()
+            return Response(edited_post.data, status=status.HTTP_202_ACCEPTED)
+        else:
+            return Response(edited_post.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+
+class ArticleViewed(APIView):
+    def put(self, request, pk):
+        post_to_update = Article.objects.get(id=pk)
+        edited_post = ArticleViewOnlySerializer(
+            post_to_update, data=request.data)
         if edited_post.is_valid():
             edited_post.save()
             return Response(edited_post.data, status=status.HTTP_202_ACCEPTED)
