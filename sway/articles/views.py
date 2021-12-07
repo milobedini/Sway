@@ -64,15 +64,3 @@ class ArticleDetailView(APIView):
             return Response(edited_post.data, status=status.HTTP_202_ACCEPTED)
         else:
             return Response(edited_post.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
-
-
-class ArticleViewed(APIView):
-    def put(self, request, pk):
-        post_to_update = Article.objects.get(id=pk)
-        edited_post = ArticleViewOnlySerializer(
-            post_to_update, data=request.data)
-        if edited_post.is_valid():
-            edited_post.save()
-            return Response(edited_post.data, status=status.HTTP_202_ACCEPTED)
-        else:
-            return Response(edited_post.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
