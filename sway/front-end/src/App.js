@@ -17,6 +17,7 @@ import Meditate from './pages/Meditate'
 import NotesList from './pages/NotesList'
 import Profile from './pages/Profile'
 import PostThread from './pages/PostThread'
+import EditThread from './pages/EditThread'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -42,6 +43,7 @@ function App() {
             <Route path="/feed" element={<Feed />} />
             <Route path="/feed/:id" element={<ArticleShow />} />
             <Route path="/feed/new" element={<PostThread />} />
+            <Route path="/feed/:id/edit" element={<EditThread />} />
             <Route path="/notes" element={<NotesList />} />
             <Route path="/profile" element={<Profile />} />
             <Route

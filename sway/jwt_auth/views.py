@@ -65,7 +65,7 @@ class ProfileView(APIView):
             raise PermissionDenied()
         if edited_user.is_valid():
             edited_user.save()
-            return Response(edited_user.data, status=status.HTTP_201_CREATED)
+            return Response(edited_user.data, status=status.HTTP_202_ACCEPTED)
         else:
             return Response(edited_user.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 

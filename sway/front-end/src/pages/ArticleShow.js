@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
 import Comments from '../components/Comments'
 import '../styles/article.scss'
@@ -16,6 +16,7 @@ const ArticleShow = () => {
   const [author, setAuthor] = useState('')
   const { id } = useParams()
   const currentUser = getUsername()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const getArticle = async (id) => {
@@ -33,7 +34,7 @@ const ArticleShow = () => {
 
   // add view function here
 
-  const handleDelete = async (commentId) => {
+  const handleCommentDelete = async (commentId) => {
     console.log('deleting')
     try {
       const config = getAxiosDeleteConfig(`/api/comments/${commentId}/`)
@@ -43,11 +44,36 @@ const ArticleShow = () => {
       console.log(err)
     }
   }
+  console.log(author)
+
+  const handlePostDelete = async () => {
+    try {
+      if (currentUser !== author.username) {
+        throw new Error('This is not your post!')
+      }
+      const config = getAxiosDeleteConfig(`/api/feed/${id}/`)
+      const res = await axios(config)
+      console.log(res)
+      navigate('/feed')
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   return (
     <>
       <div className="article-show">
         <h2>{title}</h2>
+        {author.username === currentUser ? (
+          <div className="edit-delete">
+            <Link to={`/feed/${id}/edit`}>
+              <button className="btn">Edit</button>
+            </Link>
+            <button className="btn" onClick={handlePostDelete}>
+              Delete
+            </button>
+          </div>
+        ) : null}
         <div>
           <p>
             Posted on {created} by {author.username}
@@ -74,7 +100,9 @@ const ArticleShow = () => {
                   </div>
                   <div>
                     {comment.owner.username === currentUser ? (
-                      <button onClick={handleDelete(comment.id)}>Delete</button>
+                      <button onClick={handleCommentDelete(comment.id)}>
+                        Delete
+                      </button>
                     ) : null}
                   </div>
                 </li>

@@ -46,7 +46,7 @@ const Home = () => {
           <Link to="/feed">
             <img src={bookPic} />
             <h3>Refocus</h3>
-            <h6>Engage in our community</h6>
+            <h6>Engage with our community</h6>
           </Link>
         </div>
       </div>

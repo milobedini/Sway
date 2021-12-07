@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.exceptions import NotFound, PermissionDenied
 
 from .models import Article
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
@@ -36,3 +37,25 @@ class ArticleDetailView(APIView):
         article = Article.objects.get(id=pk)
         serialized_article = PopulatedArticleSerializer(article)
         return Response(serialized_article.data, status=status.HTTP_200_OK)
+
+    def delete(self, request, pk):
+        try:
+            post_to_delete = Article.objects.get(pk=pk)
+        except Article.DoesNotExist:
+            raise NotFound(detail="Post not found")
+        if post_to_delete.author != request.user:
+            raise PermissionDenied()
+        post_to_delete.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def put(self, request, pk):
+        post_to_update = Article.objects.get(id=pk)
+        request.data["author"] = request.user.id
+        if post_to_update.author != request.user:
+            raise PermissionDenied()
+        edited_post = ArticleSerializer(post_to_update, data=request.data)
+        if edited_post.is_valid():
+            edited_post.save()
+            return Response(edited_post.data, status=status.HTTP_202_ACCEPTED)
+        else:
+            return Response(edited_post.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
