@@ -39,26 +39,21 @@ const Profile = () => {
     <div className="profile">
       <div className="basic-info">
         <h4>
-          Username
           <p>{data.username}</p>
-        </h4>
-        <h4>
-          Profile Picture:
-          <p>{data.profileImage}</p>
         </h4>
       </div>
       <div className="stats">
-        <h4>
-          Your number of sessions:
-          <p>{data.sessions}</p>
-        </h4>
-        <h4>
-          Minutes in meditation:
-          <p>{data.minutes}</p>
-        </h4>
+        <div className="sessions">
+          <h4>{data.sessions}</h4>
+          <h6>Total Sessions</h6>
+        </div>
+        <div className="minutes">
+          <h4>{data.minutes}</h4>
+          <h6>Mindful Minutes</h6>
+        </div>
       </div>
+      <h4 id="fav-heading">Your favourites ({data.favourites.length})</h4>
       <div className="profile-fav">
-        <h4>Your favourites ({data.favourites.length}):</h4>
         <ul>
           {data.favourites.map((meditation) => (
             <li key={meditation.id}>

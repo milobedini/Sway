@@ -10,7 +10,7 @@ const TimerPage = () => {
 
   return (
     <div className="timer-container">
-      <div className="timer">
+      <div className="med-timer">
         <SettingsContext.Provider
           value={{
             showSettings,

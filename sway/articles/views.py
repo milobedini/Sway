@@ -9,6 +9,7 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 from articles.serializers.common import ArticleSerializer
 from .serializers.populated import PopulatedArticleSerializer
 from django.db.models import F
+from django.contrib.humanize.templatetags.humanize import naturaltime
 
 # Create your views here.
 
@@ -17,7 +18,7 @@ class ArticleListView(APIView):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     def get(self, request):
-        articles = Article.objects.all()
+        articles = Article.objects.order_by('-created_at').all()
         serialized_articles = PopulatedArticleSerializer(
             articles, many=True)
         return Response(serialized_articles.data, status=status.HTTP_200_OK)

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.humanize.templatetags.humanize import naturalday, naturaltime
 
 # Create your models here.
 

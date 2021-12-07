@@ -31,6 +31,7 @@ const ArticleShow = () => {
       setAuthor(res.data.author)
     }
     getArticle(id)
+    // eslint-disable-next-line
   }, [id])
 
   const handleCommentDelete = async (commentId) => {

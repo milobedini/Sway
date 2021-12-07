@@ -67,8 +67,8 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
                   </Link>
                 </li>
                 <li>
-                  <a href="" className="nav-link">
-                    <a onClick={handleLogout}>Logout</a>
+                  <a href="" className="nav-link" onClick={handleLogout}>
+                    Logout
                   </a>
                 </li>
               </>
