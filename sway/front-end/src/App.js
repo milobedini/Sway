@@ -19,6 +19,7 @@ import Profile from './pages/Profile'
 import PostThread from './pages/PostThread'
 import EditThread from './pages/EditThread'
 import LatestMeditation from './pages/LatestMeditation'
+import TimerPage from './pages/TimerPage'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -42,6 +43,7 @@ function App() {
             <Route path="/meditate/guided" element={<MeditationList />} />
             <Route path="/meditate/guided/:id" element={<MeditationShow />} />
             <Route path="/meditate/latest" element={<LatestMeditation />} />
+            <Route path="/meditate/timer" element={<TimerPage />} />
             <Route path="/feed" element={<Feed />} />
             <Route path="/feed/:id" element={<ArticleShow />} />
             <Route path="/feed/new" element={<PostThread />} />
