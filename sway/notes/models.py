@@ -5,7 +5,7 @@ from django.db import models
 
 class Note(models.Model):
     date = models.DateField(auto_now_add=True)
-    text = models.TextField()
+    text = models.TextField(max_length=600)
     owner = models.ForeignKey(
         "jwt_auth.User", related_name="notes", on_delete=models.CASCADE)
 
