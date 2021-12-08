@@ -7,7 +7,7 @@ const NoteCard = ({ date, text, id }) => {
     <div className="note">
       <span>{text}</span>
       <div className="note-footer">
-        <small>{date}</small>
+        <small>{new Date(date).toLocaleDateString()}</small>
         <MdDeleteForever className="delete-icon" size="1.3em" />
       </div>
     </div>

@@ -27,8 +27,8 @@ const ArticleShow = () => {
       setViews(res.data.views)
       console.log(views)
       setText(res.data.text)
-      setComments(res.data.comments)
       setAuthor(res.data.author)
+      setComments(res.data.comments)
     }
     getArticle(id)
     // eslint-disable-next-line
@@ -76,7 +76,8 @@ const ArticleShow = () => {
         ) : null}
         <div>
           <p>
-            Posted on {created} by {author.username}
+            Posted on {new Date(created).toLocaleDateString()} by{' '}
+            {author.username}
           </p>
           <p>{views} views</p>
         </div>
@@ -96,7 +97,7 @@ const ArticleShow = () => {
                     <p>{comment.text}</p>
                   </div>
                   <div>
-                    <p>{comment.created_at}</p>
+                    <p>{new Date(comment.created_at).toLocaleDateString()}</p>
                   </div>
                   <div>
                     {comment.owner.username === currentUser ? (

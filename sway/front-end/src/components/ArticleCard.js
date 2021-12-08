@@ -12,7 +12,8 @@ const ArticleCard = ({ id, title, views, createdAt, author }) => {
       <div>
         <h4>{views} views</h4>
         <h4>
-          Posted on {createdAt} by {author.username}
+          Posted on {new Date(createdAt).toLocaleDateString()} by{' '}
+          {author.username}
         </h4>
       </div>
     </div>
