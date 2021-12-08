@@ -20,6 +20,7 @@ import PostThread from './pages/PostThread'
 import EditThread from './pages/EditThread'
 import LatestMeditation from './pages/LatestMeditation'
 import TimerPage from './pages/TimerPage'
+import About from './pages/About'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -50,6 +51,7 @@ function App() {
             <Route path="/feed/:id/edit" element={<EditThread />} />
             <Route path="/notes" element={<NotesList />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/about" element={<About />} />
             <Route
               path="/login"
               element={<Login setIsLoggedIn={setIsLoggedIn} />}
