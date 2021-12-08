@@ -184,13 +184,11 @@ const MeditationShow = () => {
     <div className="meditation-show">
       <h2>{name}</h2>
       <p>{description}</p>
-
       <div className="audio-container">
         <div className="audio-player">
           <Slider onChange={onChange} percentage={percentage} />
           <audio
             ref={audioRef}
-            // src={anapana}
             src={audio}
             onLoadedData={(event) => {
               setDuration(event.currentTarget.duration.toFixed(2))
