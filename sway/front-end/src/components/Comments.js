@@ -33,13 +33,18 @@ const Comments = ({ id }) => {
     <div>
       <form onSubmit={handleSubmit}>
         <input
+          className="comment-textbox"
           name="text"
           type="text"
           value={data.text}
           onChange={handleFormChange}
           {...formInputProps}
         />
-        <input type="submit" value="Submit comment" />
+        <input
+          type="submit"
+          className="btn sub-comment"
+          value="Submit comment"
+        />
       </form>
     </div>
   )

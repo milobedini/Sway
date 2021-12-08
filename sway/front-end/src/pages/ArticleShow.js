@@ -62,49 +62,92 @@ const ArticleShow = () => {
   }
 
   return (
-    <>
-      <div className="article-show">
-        <h2>{title}</h2>
-        {author.username === currentUser ? (
-          <div className="edit-delete">
-            <Link to={`/feed/${id}/edit`}>
-              <button className="btn">Edit</button>
-            </Link>
-            <button className="btn" onClick={handlePostDelete}>
-              Delete
-            </button>
-          </div>
-        ) : null}
-        <div>
+    <div className="article-show">
+      <div className="top-article">
+        <div className="edit-delete">
+          {author.username === currentUser ? (
+            <>
+              <h2>{title}</h2>
+              <Link to={`/feed/${id}/edit`}>
+                <button className="btn">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="#18cdba"
+                  >
+                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                  </svg>
+                </button>
+              </Link>
+              <button className="btn" onClick={handlePostDelete}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="#18cdba"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+            </>
+          ) : (
+            <h2>{title}</h2>
+          )}
+        </div>
+        <div>{text}</div>
+        <div className="time-views">
           <p>
             Posted {timeSince(new Date(created))} ago by {author.username}
           </p>
           <p>{views} views</p>
         </div>
-        <div>{text}</div>
       </div>
+
       <div className="comments">
-        <h4>Comments ({comments.length})</h4>
+        <h4>Replies ({comments.length})</h4>
         <div className="comment">
-          <ul>
+          <ul className>
             {comments.map((comment) => {
               return (
                 <li key={comment.id}>
-                  <div>
-                    <p>{comment.owner.username}</p>
-                  </div>
-                  <div>
-                    <p>{comment.text}</p>
-                  </div>
-                  <div>
-                    <p>{timeSince(new Date(comment.created_at))} ago</p>
-                  </div>
-                  <div>
-                    {comment.owner.username === currentUser ? (
-                      <button onClick={() => handleCommentDelete(comment.id)}>
-                        Delete
-                      </button>
-                    ) : null}
+                  <div className="comment-body">
+                    <div className="comment-username">
+                      <p>{comment.owner.username}</p>
+                    </div>
+                    <div className="comment-text">
+                      <p>
+                        {comment.text}{' '}
+                        {comment.owner.username === currentUser ? (
+                          <button
+                            className="btn comment-del"
+                            onClick={() => handleCommentDelete(comment.id)}
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="h-6 w-6"
+                              fill="#f45b69"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                              />
+                            </svg>
+                          </button>
+                        ) : null}
+                      </p>
+                    </div>
+                    <div className="comment-time">
+                      <p>{timeSince(new Date(comment.created_at))} ago</p>
+                    </div>
                   </div>
                 </li>
               )
@@ -115,7 +158,7 @@ const ArticleShow = () => {
           </ul>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
