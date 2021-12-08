@@ -9,7 +9,6 @@ from rest_framework.exceptions import PermissionDenied
 from .serializers.common import NoteSerializer
 from .models import Note
 from .serializers.populated import PopulatedNoteSerializer
-from .serializers.edit import EditNotesSerializer
 
 # Create your views here.
 

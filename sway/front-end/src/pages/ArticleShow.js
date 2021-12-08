@@ -6,6 +6,7 @@ import Comments from '../components/Comments'
 import '../styles/article.scss'
 import { getAxiosDeleteConfig } from '../helpers/api'
 import { getUsername } from '../helpers/auth'
+import { timeSince } from '../helpers/date'
 
 const ArticleShow = () => {
   const [title, setTitle] = useState('')
@@ -76,8 +77,7 @@ const ArticleShow = () => {
         ) : null}
         <div>
           <p>
-            Posted on {new Date(created).toLocaleDateString()} by{' '}
-            {author.username}
+            Posted {timeSince(new Date(created))} ago by {author.username}
           </p>
           <p>{views} views</p>
         </div>
@@ -97,7 +97,7 @@ const ArticleShow = () => {
                     <p>{comment.text}</p>
                   </div>
                   <div>
-                    <p>{new Date(comment.created_at).toLocaleDateString()}</p>
+                    <p>{timeSince(new Date(comment.created_at))} ago</p>
                   </div>
                   <div>
                     {comment.owner.username === currentUser ? (

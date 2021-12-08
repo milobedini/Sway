@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { timeSince } from '../helpers/date'
 
 const ArticleCard = ({ id, title, views, createdAt, author }) => {
   return (
@@ -12,8 +13,7 @@ const ArticleCard = ({ id, title, views, createdAt, author }) => {
       <div>
         <h4>{views} views</h4>
         <h4>
-          Posted on {new Date(createdAt).toLocaleDateString()} by{' '}
-          {author.username}
+          Posted {timeSince(new Date(createdAt))} ago by {author.username}
         </h4>
       </div>
     </div>
