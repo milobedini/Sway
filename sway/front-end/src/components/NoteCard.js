@@ -8,7 +8,7 @@ const NoteCard = ({ id, date, text, handleDeleteNote }) => {
       <div className="note-footer">
         <small>{new Date(date).toLocaleDateString()}</small>
         <MdDeleteForever
-          className="delete-icon"
+          className="note-delete-icon"
           size="1.3em"
           onClick={() => handleDeleteNote(id)}
         />
