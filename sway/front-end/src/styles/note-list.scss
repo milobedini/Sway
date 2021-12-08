@@ -1,3 +1,41 @@
+.notes-container {
+  min-height: 90vw;
+  background-color: #0c1527;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
 .note-list {
+  ul {
+    padding-left: 0;
+  }
   padding-top: 5rem;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+  textarea {
+    border: none;
+    resize: none;
+    background-color: #18cdba;
+    text-align: left;
+  }
+  textarea:focus {
+    outline: none;
+  }
+}
+
+.note.new {
+  background-color: #18cdba;
+}
+.save {
+  background-color: #e0e9f3;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px 5px 10px;
+}
+
+.save:hover {
+  cursor: pointer;
+  background-color: #fef68a;
 }

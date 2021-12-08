@@ -3,9 +3,9 @@ import axios from 'axios'
 import { getNotes } from '../helpers/api'
 import NoteCard from '../components/NoteCard'
 import '../styles/note-list.scss'
+import NoteAdd from '../components/NoteAdd'
 const NotesList = () => {
   const [notes, setNotes] = useState([])
-  //   const [dates, setDates] = useState([])
 
   useEffect(() => {
     const getUserNotes = async () => {
@@ -21,12 +21,13 @@ const NotesList = () => {
     getUserNotes()
   }, [])
   return (
-    <div className="note-list">
-      <ul>
+    <div className="notes-container">
+      <div className="note-list">
         {notes.map((note) => (
-          <li key={note.id}>{<NoteCard {...note} />}</li>
+          <NoteCard key={note.id} {...note} />
         ))}
-      </ul>
+        <NoteAdd />
+      </div>
     </div>
   )
 }

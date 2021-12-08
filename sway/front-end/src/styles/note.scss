@@ -1,0 +1,19 @@
+.note {
+  background-color: #fef68a;
+  border-radius: 10px;
+  padding: 1rem;
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  span {
+    text-align: left;
+  }
+}
+.note-footer {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

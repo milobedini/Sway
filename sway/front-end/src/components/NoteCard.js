@@ -1,10 +1,15 @@
-import React from 'react'
+import { MdDeleteForever } from 'react-icons/md'
+import '../styles/note.scss'
 
-const NoteCard = ({ date, text }) => {
+const NoteCard = ({ date, text, id }) => {
+  console.log(id)
   return (
-    <div>
-      <h2>{date}</h2>
-      <p>{text}</p>
+    <div className="note">
+      <span>{text}</span>
+      <div className="note-footer">
+        <small>{date}</small>
+        <MdDeleteForever className="delete-icon" size="1.3em" />
+      </div>
     </div>
   )
 }
