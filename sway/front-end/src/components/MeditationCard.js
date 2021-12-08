@@ -8,13 +8,14 @@ const MeditationCard = ({ id, name, description, category }) => {
         <div>
           <h3>{name}</h3>
         </div>
+
+        <div>
+          <h5>{description}</h5>
+        </div>
+        <div>
+          <p>*{category}*</p>
+        </div>
       </Link>
-      <div>
-        <h5>{description}</h5>
-      </div>
-      <div>
-        <p>*{category}*</p>
-      </div>
     </div>
   )
 }

@@ -2,7 +2,9 @@
   padding-top: 5rem;
   display: flex;
   justify-content: space-around;
-
+  align-items: flex-start;
+  min-height: 92vh;
+  background: #0c1527;
   h2 {
     font-weight: 500;
   }
@@ -14,10 +16,12 @@
 .categories {
   display: flex;
   flex-direction: column;
-
   max-width: 100px;
+
   h5 {
     text-align: left;
+    font-weight: 400;
+    color: #18cdba;
   }
   ul {
     max-width: 3rem;
@@ -25,8 +29,8 @@
   }
   button {
     display: block;
-    background-color: #0c1527;
-    color: #e0e9f3;
+    background-color: #e0e9f3;
+    color: #0c1527;
     border-radius: 75px;
     margin: 10px 0 10px 0;
   }
@@ -40,6 +44,50 @@
   align-items: center;
   justify-content: center;
   min-width: 70%;
+  border-left: 1px solid #0c1527;
+
+  a {
+    color: unset;
+  }
+
+  h3 {
+    color: #028090;
+    font-weight: 400;
+  }
+
+  h5 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+    font-weight: 200;
+  }
+
+  ul {
+    max-width: 70%;
+    padding-left: 0;
+    li:nth-child(odd) {
+      background-color: #e0e9f3;
+      color: #0c1527;
+      border: black 1px solid;
+    }
+    li:nth-child(even) {
+      h3 {
+        color: white;
+      }
+      color: #e0e9f3;
+      background-color: #0c1527;
+      border: #18cdba 1px solid;
+    }
+
+    li {
+      background: #e0e9f3;
+      border-radius: 20px;
+      padding: 0.3rem;
+      margin-bottom: 10px;
+    }
+  }
 }
 
 #Shorter,

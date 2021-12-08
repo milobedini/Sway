@@ -53,14 +53,14 @@ const ControlPanel = ({
           {!hasLiked ? (
             <button className="btn" onClick={handleFavourite}>
               <i
-                className="fas fa-bookmark save fa-2x"
+                className="fas fa-bookmark save-med fa-2x"
                 style={{ color: '#18cdba' }}
               ></i>
             </button>
           ) : (
             <button className="btn" onClick={handleRemove}>
               <i
-                className="fas fa-minus-square fa-2x"
+                className="fas fa-minus-square remove-med fa-2x"
                 style={{ color: '#18cdba' }}
               ></i>
             </button>

@@ -7,30 +7,27 @@ const Footer = () => {
     <div className="footer mt-auto bg-dark text-white pt-5 pb-4">
       <div className="container">
         <footer className="main-footer">
-          <div className="row">
-            <div className="footer-about col-sm">
-              <h5 className="text-center">
-                <Link to="/about">About</Link>
-              </h5>
-            </div>
-            <div className="created col-sm">
-              <h4 className="text-center">
-                <a
-                  href="https://www.linkedin.com/in/milo-bedini-794787154/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Created by Milo
-                </a>
-              </h4>
-            </div>
-            <div className="footer-logo col-sm navbar-brand">
+          <div>
+            <h5 className="text-center">
+              <Link to="/about">About</Link>
+            </h5>
+          </div>
+          <div>
+            <h4 className="text-center">
+              <a
+                href="https://www.linkedin.com/in/milo-bedini-794787154/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Created by Milo
+              </a>
+            </h4>
+          </div>
+          <div className="footer-logo  navbar-brand">
+            <Link to="/">
               <span className="hidden">Footer</span>
-              <img
-                className="footer-logo d-inline-block align-top"
-                src={favicon2}
-              ></img>
-            </div>
+              <img className="footer-logo " src={favicon2}></img>
+            </Link>
           </div>
         </footer>
       </div>

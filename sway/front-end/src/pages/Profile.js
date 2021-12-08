@@ -52,7 +52,7 @@ const Profile = () => {
           <h6>Mindful Minutes</h6>
         </div>
       </div>
-      <h4 id="fav-heading">Your favourites ({data.favourites.length})</h4>
+      <h4 id="fav-heading">Your favourites: ({data.favourites.length})</h4>
       <div className="profile-fav">
         <ul>
           {data.favourites.map((meditation) => (
