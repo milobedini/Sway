@@ -44,24 +44,27 @@ const Feed = () => {
     ))
 
   return (
-    <div className="feed">
-      <div className="feed-heading">
-        <h2>Feed</h2>
-        <p>Check out our community forum and much more.</p>
-      </div>
+    <div className="feed-container">
       <div className="start-thread">
+        <h5>Start Thread</h5>
         <Link to="/feed/new/">
           <button className="btn">
             <FcPlus size="2.2rem" />
           </button>
         </Link>
       </div>
+      <div className="heading-posts">
+        <div className="feed-heading">
+          <h2>Feed</h2>
+          <p>Check out our community forum and much more.</p>
+        </div>
+        <div className="post-list">
+          <ul>{postList}</ul>
+        </div>
+      </div>
       <div className="categories">
         <h5>Choose a Category:</h5>
         <ul>{filterList}</ul>
-      </div>
-      <div className="post-list">
-        <ul>{postList}</ul>
       </div>
     </div>
   )

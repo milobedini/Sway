@@ -9,13 +9,13 @@ const ArticleCard = ({ id, title, views, createdAt, author }) => {
         <div>
           <h2>{title}</h2>
         </div>
+        <div>
+          <h4>{views} views</h4>
+          <h4>
+            Posted {timeSince(new Date(createdAt))} ago by {author.username}
+          </h4>
+        </div>
       </Link>
-      <div>
-        <h4>{views} views</h4>
-        <h4>
-          Posted {timeSince(new Date(createdAt))} ago by {author.username}
-        </h4>
-      </div>
     </div>
   )
 }
