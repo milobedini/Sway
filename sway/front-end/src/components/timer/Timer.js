@@ -5,6 +5,7 @@ import PlayTimer from './PlayTimer'
 import SettingsTimer from './SettingsTimer'
 import { useContext, useState, useEffect, useRef } from 'react'
 import SettingsContext from './SettingsContext'
+import bell from '../../audio/Meditation-bell-sound.mp3'
 const strong = '#18cdba'
 const red = '#f45b69'
 
@@ -14,6 +15,12 @@ const Timer = () => {
   const [secondsLeft, setSecondsLeft] = useState(0)
   const secondsLeftRef = useRef(secondsLeft)
   const isPausedRef = useRef(isPaused)
+
+  const audio = useRef(null)
+  const playAudio = () => {
+    console.log(audio.current)
+    audio.current.play()
+  }
 
   function tick() {
     secondsLeftRef.current--
@@ -29,10 +36,11 @@ const Timer = () => {
         return
       }
       if (secondsLeftRef.current === 0) {
+        playAudio()
         return () => clearInterval(interval)
       }
       tick()
-    }, 1000)
+    }, 100)
     return () => clearInterval(interval)
   }, [settingsInfo])
 
@@ -53,6 +61,7 @@ const Timer = () => {
           trailColor: red,
         })}
       />
+      <audio src={bell} ref={audio}></audio>
       <div style={{ marginTop: '20px' }}>
         {isPaused ? (
           <PlayTimer
