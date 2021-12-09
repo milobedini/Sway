@@ -8,7 +8,7 @@ import { getAxiosDeleteConfig } from '../helpers/api'
 import { getUsername } from '../helpers/auth'
 import { timeSince } from '../helpers/date'
 
-const ArticleShow = () => {
+const ArticleShow = ({ isLoggedIn }) => {
   const [title, setTitle] = useState('')
   const [created, setCreated] = useState('')
   const [views, setViews] = useState(0)
@@ -152,9 +152,17 @@ const ArticleShow = () => {
                 </li>
               )
             })}
-            <div className="leave-comment">
-              <Comments id={id} />
-            </div>
+            {isLoggedIn ? (
+              <div className="leave-comment">
+                <Comments id={id} />
+              </div>
+            ) : (
+              <Link to="/login">
+                <p style={{ color: '#a6adbb', fontStyle: 'italic' }}>
+                  Please login to reply.
+                </p>
+              </Link>
+            )}
           </ul>
         </div>
       </div>

@@ -13,7 +13,7 @@ const filterMap = {
 }
 const filterNames = Object.keys(filterMap)
 
-const Feed = () => {
+const Feed = ({ isLoggedIn }) => {
   const [feed, setFeed] = useState([])
   const [filter, setFilter] = useState('All')
 
@@ -45,14 +45,16 @@ const Feed = () => {
 
   return (
     <div className="feed-container">
-      <div className="start-thread">
-        <h5>Start Thread</h5>
-        <Link to="/feed/new/">
-          <button className="btn">
-            <FcPlus size="2.2rem" />
-          </button>
-        </Link>
-      </div>
+      {isLoggedIn ? (
+        <div className="start-thread">
+          <h5>Start Thread</h5>
+          <Link to="/feed/new/">
+            <button className="btn">
+              <FcPlus size="2.2rem" />
+            </button>
+          </Link>
+        </div>
+      ) : null}
       <div className="heading-posts">
         <div className="feed-heading">
           <h2>Feed</h2>

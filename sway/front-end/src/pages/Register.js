@@ -10,7 +10,6 @@ const Register = () => {
   const [data, setData] = useState({
     email: '',
     username: '',
-    profile_image: '',
     password: '',
     password_confirmation: '',
   })
@@ -62,7 +61,6 @@ const Register = () => {
           </div>
           <FormInput type="email" name="email" {...formInputProps} />
           <FormInput type="text" name="username" {...formInputProps} />
-          <FormInput type="text" name="profile_image" {...formInputProps} />
           <FormInput type="password" name="password" {...formInputProps} />
           <FormInput
             type="password"

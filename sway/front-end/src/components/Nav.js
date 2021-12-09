@@ -50,11 +50,13 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
             <Link to="/meditate/timer" className="nav-link">
               Timer
             </Link>
-            <li>
-              <Link to="/notes" className="nav-link">
-                Notes{' '}
-              </Link>
-            </li>
+            {isLoggedIn ? (
+              <li>
+                <Link to="/notes" className="nav-link">
+                  Notes{' '}
+                </Link>
+              </li>
+            ) : null}
             <Link to="/feed" className="nav-link">
               Community
             </Link>

@@ -1,4 +1,5 @@
 import '../styles/about.scss'
+import milopic from '../images/milopic.jpg'
 
 const About = () => {
   return (
@@ -30,10 +31,7 @@ const About = () => {
             </a>
           </p>
         </div>
-        <img
-          src="https://ca.slack-edge.com/T0351JZQ0-U02AHLPNSNQ-7a7399fc3501-512"
-          alt="Milo"
-        />
+        <img src={milopic} alt="Milo" />
       </div>
     </div>
   )

@@ -7,7 +7,7 @@ import cloudPic from '../images/cloud.png'
 import timerPic from '../images/timer.png'
 import progressPic from '../images/progress.png'
 
-const Home = () => {
+const Home = ({ isLoggedIn }) => {
   return (
     <div className="home">
       <div className="top-section">
@@ -50,10 +50,20 @@ const Home = () => {
       <div className="third-section"></div>
       <div className="fourth-section">
         <div className="notes">
-          <Link to="/notes">
-            <img src={cloudPic} />
-            <h5>Your personal scribblings...</h5>
-          </Link>
+          {isLoggedIn ? (
+            <Link to="/notes">
+              <img src={cloudPic} />
+              <h5>Your personal scribblings...</h5>
+            </Link>
+          ) : (
+            <Link to="/login">
+              <img src={cloudPic} />
+              <h5>Your personal scribblings...</h5>
+              <small style={{ fontStyle: 'italic', color: '#028090' }}>
+                Account only
+              </small>
+            </Link>
+          )}
         </div>
         <div className="timer">
           <Link to="/meditate/timer">
@@ -61,12 +71,14 @@ const Home = () => {
             <h5>Meditation timer...</h5>
           </Link>
         </div>
-        <div className="profile-progress">
-          <Link to="/profile">
-            <img src={progressPic} />
-            <h5>Track your progress...</h5>
-          </Link>
-        </div>
+        {isLoggedIn ? (
+          <div className="profile-progress">
+            <Link to="/profile">
+              <img src={progressPic} />
+              <h5>Track your progress...</h5>
+            </Link>
+          </div>
+        ) : null}
       </div>
     </div>
   )

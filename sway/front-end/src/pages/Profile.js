@@ -9,7 +9,6 @@ import '../styles/profile.scss'
 const Profile = () => {
   const [data, setData] = useState({
     username: '',
-    profileImage: '',
     favourites: [],
     sessions: '',
     minutes: '',
@@ -23,7 +22,6 @@ const Profile = () => {
         console.log(res.data)
         setData({
           username: res.data.username,
-          profileImage: res.data.profile_image,
           favourites: res.data.favourites,
           sessions: res.data.sessions,
           minutes: res.data.minutes,

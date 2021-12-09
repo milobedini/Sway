@@ -39,14 +39,17 @@ function App() {
         <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <main>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
             <Route path="/meditate" element={<Meditate />} />
             <Route path="/meditate/guided" element={<MeditationList />} />
             <Route path="/meditate/guided/:id" element={<MeditationShow />} />
             <Route path="/meditate/latest" element={<LatestMeditation />} />
             <Route path="/meditate/timer" element={<TimerPage />} />
-            <Route path="/feed" element={<Feed />} />
-            <Route path="/feed/:id" element={<ArticleShow />} />
+            <Route path="/feed" element={<Feed isLoggedIn={isLoggedIn} />} />
+            <Route
+              path="/feed/:id"
+              element={<ArticleShow isLoggedIn={isLoggedIn} />}
+            />
             <Route path="/feed/new" element={<PostThread />} />
             <Route path="/feed/:id/edit" element={<EditThread />} />
             <Route path="/notes" element={<NotesList />} />
