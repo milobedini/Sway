@@ -58,7 +58,6 @@ const Feed = ({ isLoggedIn }) => {
       <div className="heading-posts">
         <div className="feed-heading">
           <h2>Feed</h2>
-          <p>Check out our community forum and much more.</p>
         </div>
         <div className="post-list">
           <ul>{postList}</ul>

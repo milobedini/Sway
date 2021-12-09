@@ -4,8 +4,7 @@
   background: #0c1527;
   display: flex;
   flex-direction: row-reverse;
-  justify-content: space-evenly;
-
+  justify-content: space-around;
   .categories {
     padding-left: 0.4rem;
   }
@@ -58,8 +57,9 @@
     li {
       background: #e0e9f3;
       border-radius: 20px;
-      padding: 0.3rem;
+      padding: 20px;
       margin-bottom: 10px;
+      max-width: 600px;
     }
   }
 }
@@ -68,4 +68,15 @@
 }
 .start-thread {
   color: #18cdba;
+}
+
+.post-list h2 {
+  text-transform: capitalize;
+}
+.article-show h2 {
+  text-transform: capitalize;
+}
+
+.comment-textbox {
+  min-width: 50%;
 }

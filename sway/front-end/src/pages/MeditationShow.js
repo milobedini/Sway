@@ -180,8 +180,10 @@ const MeditationShow = () => {
 
   return (
     <div className="meditation-show">
-      <h2>{name}</h2>
-      <p>{description}</p>
+      <div className="med-show-heading">
+        <h2>{name}</h2>
+        <p>{description}</p>
+      </div>
       <div className="audio-container">
         <div className="audio-player">
           <Slider onChange={onChange} percentage={percentage} />
