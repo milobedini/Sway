@@ -2,14 +2,12 @@ import axios from 'axios'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import FormInput from '../components/FormInput'
 import '../styles/thread-form.scss'
 import { getAxiosRequestConfig } from '../helpers/api'
 
 const PostThread = () => {
   const navigate = useNavigate()
 
-  const [errorInfo, setErrorInfo] = useState({})
   const [isError, setIsError] = useState(false)
   const [data, setData] = useState({
     title: '',
@@ -41,12 +39,9 @@ const PostThread = () => {
 
   const handleError = (error) => {
     if (error) {
-      setErrorInfo(error.response.data)
       setIsError(true)
     }
   }
-
-  const formInputProps = { data, errorInfo, handleFormChange }
 
   return (
     <div className="thread-form-container">
@@ -56,15 +51,19 @@ const PostThread = () => {
             <div>
               <h2>Start your own thread...</h2>
             </div>
-            <FormInput
-              type="text"
-              name="title"
-              className="form-control"
-              {...formInputProps}
-            />
-
             <div className="form-group">
-              <label htmlFor="text">Text</label>
+              <label htmlFor="title" className="form-label"></label>
+              <input
+                type="text"
+                className="form-control"
+                id="title"
+                name="title"
+                placeholder="My thread's name"
+                onChange={handleFormChange}
+              ></input>
+            </div>
+            <div className="form-group">
+              <label htmlFor="text" className="form-label"></label>
               <textarea
                 className="form-control"
                 id="text"
@@ -74,9 +73,6 @@ const PostThread = () => {
                 onChange={handleFormChange}
               ></textarea>
             </div>
-
-            {/* <FormInput type="text" name="text" {...formInputProps} /> */}
-
             <div>
               <button className="save btn">
                 <input type="submit" value="Post" />

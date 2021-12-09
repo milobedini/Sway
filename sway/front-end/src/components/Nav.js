@@ -1,8 +1,6 @@
 import { removeToken, removeUserId, removeUsername } from '../helpers/auth'
 import { Link, useNavigate } from 'react-router-dom'
 import logo from '../assets/Logo.svg'
-// import favicon1 from '../assets/Favicon 1.svg'
-// import favicon2 from '../assets/Favicon 2.svg'
 
 import React from 'react'
 

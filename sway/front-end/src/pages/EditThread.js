@@ -46,7 +46,6 @@ const EditThread = () => {
     }
   }
 
-  //   const formInputProps = { data, errorInfo, handleFormChange }
   return (
     <div className="thread-form-container">
       <div className="edit-thread">
@@ -55,12 +54,6 @@ const EditThread = () => {
             <div>
               <h2>Edit your post...</h2>
             </div>
-            {/* <FormInput
-            type="text"
-            name="title"
-            className="form-control"
-            {...formInputProps}
-          /> */}
             <div className="form-group">
               <label htmlFor="title" className="form-label"></label>
               <input
