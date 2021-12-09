@@ -45,8 +45,6 @@ const MeditationShow = () => {
       setMinutes(res.data.minutes)
       setSessions(res.data.sessions)
       setAudio(res.data.audio)
-      console.log(minutes)
-
       const usefulArray = []
       for (let i = 0; i < res.data.favourited_by.length; i++) {
         usefulArray.push(res.data.favourited_by[i].id)
@@ -58,7 +56,7 @@ const MeditationShow = () => {
     }
     getMeditation(id)
     // eslint-disable-next-line
-  }, [favIdArray.length, id, hasLiked])
+  }, [id, hasLiked])
 
   const handleFavourite = async () => {
     setHasLiked(true)

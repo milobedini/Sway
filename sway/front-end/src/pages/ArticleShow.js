@@ -111,7 +111,7 @@ const ArticleShow = () => {
       <div className="comments">
         <h4>Replies ({comments.length})</h4>
         <div className="comment">
-          <ul className>
+          <ul className="comment-list">
             {comments.map((comment) => {
               return (
                 <li key={comment.id}>

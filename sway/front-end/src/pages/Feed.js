@@ -8,8 +8,8 @@ import FilterButton from '../components/FilterButton'
 
 const filterMap = {
   All: () => true,
-  Article: (post) => post.category.includes('Article'),
-  Thread: (post) => post.category.includes('Thread'),
+  Articles: (post) => post.category.includes('Article'),
+  Threads: (post) => post.category.includes('Thread'),
 }
 const filterNames = Object.keys(filterMap)
 

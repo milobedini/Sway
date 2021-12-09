@@ -47,7 +47,7 @@ const ControlPanel = ({
         <div className="control-panel">
           <div className="timer">{timeConversion(currentTime)}</div>
           <Button play={play} isPlaying={isPlaying} />
-          <div className="timer">{timeConversion(duration)}</div>
+          <div className="timer">{timeConversion(duration - currentTime)}</div>
         </div>
         <div className="timer-logo">
           {!hasLiked ? (

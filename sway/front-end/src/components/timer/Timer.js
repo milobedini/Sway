@@ -59,6 +59,7 @@ const Timer = () => {
             onClick={() => {
               setIsPaused(false)
               isPausedRef.current = false
+              console.log('play')
             }}
           />
         ) : (
