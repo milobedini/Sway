@@ -3,7 +3,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import FormInput from '../components/FormInput'
-import '../styles/post-thread.scss'
+import '../styles/thread-form.scss'
 import { getAxiosRequestConfig } from '../helpers/api'
 
 const PostThread = () => {
@@ -49,44 +49,48 @@ const PostThread = () => {
   const formInputProps = { data, errorInfo, handleFormChange }
 
   return (
-    <div className="post-thread">
-      <div>
-        <form onSubmit={handleSubmit} className="form-group">
-          <div>
-            <h2>Start your own thread...</h2>
-          </div>
-          <FormInput
-            type="text"
-            name="title"
-            className="form-control"
-            {...formInputProps}
-          />
-
-          <div className="form-group">
-            <label htmlFor="text">Text</label>
-            <textarea
-              className="form-control"
-              id="text"
-              rows="10"
-              type="text"
-              name="text"
-              onChange={handleFormChange}
-            ></textarea>
-          </div>
-
-          {/* <FormInput type="text" name="text" {...formInputProps} /> */}
-
-          <div>
-            <input type="submit" value="Post" />
-          </div>
-          {isError ? (
-            <div className="error">
-              <p>Something went wrong. Please try again.</p>
+    <div className="thread-form-container">
+      <div className="post-thread">
+        <div>
+          <form onSubmit={handleSubmit} className="form-group">
+            <div>
+              <h2>Start your own thread...</h2>
             </div>
-          ) : (
-            <></>
-          )}
-        </form>
+            <FormInput
+              type="text"
+              name="title"
+              className="form-control"
+              {...formInputProps}
+            />
+
+            <div className="form-group">
+              <label htmlFor="text">Text</label>
+              <textarea
+                className="form-control"
+                id="text"
+                rows="10"
+                type="text"
+                name="text"
+                onChange={handleFormChange}
+              ></textarea>
+            </div>
+
+            {/* <FormInput type="text" name="text" {...formInputProps} /> */}
+
+            <div>
+              <button className="save btn">
+                <input type="submit" value="Post" />
+              </button>
+            </div>
+            {isError ? (
+              <div className="error">
+                <p>Something went wrong. Please try again.</p>
+              </div>
+            ) : (
+              <></>
+            )}
+          </form>
+        </div>
       </div>
     </div>
   )

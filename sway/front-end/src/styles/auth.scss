@@ -1,4 +1,14 @@
 .register,
 .login {
   padding-top: 5rem;
+  i {
+    padding-bottom: 7%;
+  }
+}
+.reg-btn,
+.login-btn {
+  background-color: #0c1527;
+  input {
+    color: #e0e9f3;
+  }
 }

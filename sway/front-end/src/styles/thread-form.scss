@@ -1,0 +1,47 @@
+.post-thread,
+.edit-thread {
+  background-color: #fef68a;
+  border-radius: 10px;
+  padding: 1rem;
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  white-space: pre-wrap;
+  textarea,
+  input {
+    border: none;
+    resize: none;
+
+    text-align: left;
+  }
+  textarea:focus {
+    outline: none;
+  }
+  input:focus {
+    outline: none;
+  }
+  :hover {
+    style: unset;
+  }
+  .save:hover {
+    cursor: pointer;
+    //   background-color: #fef68a;
+  }
+  .save {
+    background-color: #18cdba;
+    border: 1px solid #0c1527;
+    margin-top: 1rem;
+    input {
+      background-color: #18cdba;
+    }
+  }
+}
+
+.thread-form-container {
+  min-height: 90vh;
+  background-color: #0c1527;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 5rem;
+}
