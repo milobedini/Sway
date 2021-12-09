@@ -10,7 +10,7 @@
   white-space: pre-wrap;
   textarea,
   input {
-    border: none;
+    border: 1px solid #0c1527;
     resize: none;
 
     text-align: left;
@@ -26,7 +26,6 @@
   }
   .save:hover {
     cursor: pointer;
-    //   background-color: #fef68a;
   }
   .save {
     background-color: #18cdba;
@@ -34,6 +33,7 @@
     margin-top: 1rem;
     input {
       background-color: #18cdba;
+      border: none;
     }
   }
 }
@@ -44,4 +44,7 @@
   padding-right: 15px;
   padding-left: 15px;
   padding-top: 5rem;
+}
+.form-group {
+  margin: auto 8%;
 }
