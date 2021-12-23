@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { getAxiosRequestConfig } from '../helpers/api'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import '../styles/thread-form.scss'
 
@@ -15,6 +15,26 @@ const EditThread = () => {
     title: '',
     text: '',
   })
+
+  const [preloadedValues, setPreloadedValues] = useState({
+    title: '',
+    text: '',
+  })
+
+  useEffect(() => {
+    const getArticle = async () => {
+      const res = await axios.get(`/api/feed/${id}`)
+      setPreloadedValues({
+        title: res.data.title,
+        text: res.data.text,
+      })
+      setData({
+        title: res.data.title,
+        text: res.data.text,
+      })
+    }
+    getArticle()
+  }, [id])
 
   const handleFormChange = (event) => {
     const { name, value } = event.target
@@ -62,6 +82,7 @@ const EditThread = () => {
                 id="title"
                 name="title"
                 placeholder="My thread's name"
+                defaultValue={preloadedValues.title}
                 onChange={handleFormChange}
               ></input>
             </div>
@@ -73,6 +94,7 @@ const EditThread = () => {
                 rows="10"
                 type="text"
                 name="text"
+                defaultValue={preloadedValues.text}
                 onChange={handleFormChange}
               ></textarea>
             </div>
