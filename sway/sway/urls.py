@@ -14,8 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from django.urls import include
+# <-- added this new import re_path
+from django.urls import path, include, re_path
+from .views import index  # <-- also new
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +25,5 @@ urlpatterns = [
     path('api/meditations/', include('meditations.urls')),
     path('api/notes/', include('notes.urls')),
     path('api/auth/', include('jwt_auth.urls')),
+    re_path(r'^.*$', index)
 ]
