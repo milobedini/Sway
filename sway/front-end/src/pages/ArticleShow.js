@@ -21,7 +21,7 @@ const ArticleShow = ({ isLoggedIn }) => {
 
   useEffect(() => {
     const getArticle = async (id) => {
-      const res = await axios.get(`/api/feed/${id}`)
+      const res = await axios.get(`/api/feed/${id}/`)
       console.log(res.data)
       setTitle(res.data.title)
       setCreated(res.data.created_at)
