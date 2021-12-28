@@ -40,7 +40,7 @@ const Timer = () => {
         return () => clearInterval(interval)
       }
       tick()
-    }, 100)
+    }, 1000)
     return () => clearInterval(interval)
   }, [settingsInfo])
 

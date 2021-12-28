@@ -40,50 +40,105 @@ const Nav = ({ isLoggedIn, setIsLoggedIn }) => {
         </button>
         <div className="collapse navbar-collapse" id="toggleMobileMenu">
           <ul className="navbar-nav ms-auto text-center">
-            <li>
-              <Link to="/meditate" className="nav-link">
+            <Link to="/meditate" className="nav-link">
+              <li
+                data-bs-toggle="collapse"
+                data-bs-target="#toggleMobileMenu"
+                aria-controls="toggleMobileMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
                 Meditate
-              </Link>
-            </li>
+              </li>
+            </Link>
             <Link to="/meditate/timer" className="nav-link">
-              Timer
+              <li
+                data-bs-toggle="collapse"
+                data-bs-target="#toggleMobileMenu"
+                aria-controls="toggleMobileMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                Timer
+              </li>
             </Link>
             {isLoggedIn ? (
-              <li>
-                <Link to="/notes" className="nav-link">
-                  Notes{' '}
-                </Link>
-              </li>
+              <Link to="/notes" className="nav-link">
+                <li
+                  data-bs-toggle="collapse"
+                  data-bs-target="#toggleMobileMenu"
+                  aria-controls="toggleMobileMenu"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  Notes
+                </li>
+              </Link>
             ) : null}
             <Link to="/feed" className="nav-link">
-              Community
+              <li
+                data-bs-toggle="collapse"
+                data-bs-target="#toggleMobileMenu"
+                aria-controls="toggleMobileMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                Community
+              </li>
             </Link>
 
             {isLoggedIn ? (
               <>
-                <li>
-                  <Link to="/profile" className="nav-link">
+                <Link to="/profile" className="nav-link">
+                  <li
+                    data-bs-toggle="collapse"
+                    data-bs-target="#toggleMobileMenu"
+                    aria-controls="toggleMobileMenu"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                  >
                     Profile
-                  </Link>
-                </li>
+                  </li>
+                </Link>
                 <li>
-                  <a href="" className="nav-link" onClick={handleLogout}>
+                  <a
+                    href=""
+                    className="nav-link"
+                    onClick={handleLogout}
+                    data-bs-toggle="collapse"
+                    data-bs-target="#toggleMobileMenu"
+                    aria-controls="toggleMobileMenu"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                  >
                     Logout
                   </a>
                 </li>
               </>
             ) : (
               <>
-                <li>
-                  <Link to="/login" className="nav-link">
+                <Link to="/login" className="nav-link">
+                  <li
+                    data-bs-toggle="collapse"
+                    data-bs-target="#toggleMobileMenu"
+                    aria-controls="toggleMobileMenu"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                  >
                     Login
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/register" className="nav-link">
+                  </li>
+                </Link>
+                <Link to="/register" className="nav-link">
+                  <li
+                    data-bs-toggle="collapse"
+                    data-bs-target="#toggleMobileMenu"
+                    aria-controls="toggleMobileMenu"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                  >
                     Register
-                  </Link>
-                </li>
+                  </li>
+                </Link>
               </>
             )}
           </ul>

@@ -1,0 +1,5 @@
+Django == 3.2.9
+django-heroku == 0.3.1
+cloudinary == 1.28.0
+PyJWT == 2.3.0
+djangorestframework == 3.12.4

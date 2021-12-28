@@ -80,3 +80,16 @@
 .comment-textbox {
   min-width: 50%;
 }
+
+@media screen and (max-width: 600px) {
+  .start-thread {
+    h5 {
+      display: none;
+    }
+  }
+  .post-list {
+    h2 {
+      font-size: 1rem;
+    }
+  }
+}

@@ -25,6 +25,16 @@
 
 @media screen and (max-width: 600px) {
   .timer-logo img {
-    margin-left: 70%;
+    margin-left: 62%;
+    margin-bottom: 0;
+  }
+  .control-panel-wrapper {
+    height: 300px;
+  }
+  .btn-play {
+    margin-top: 125%;
+  }
+  .timer-logo {
+    margin-top: 100%;
   }
 }

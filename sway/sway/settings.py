@@ -9,6 +9,8 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import os
+import django_heroku
 
 from pathlib import Path
 
@@ -55,12 +57,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'sway.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'front-end')
+                 ]  # Look, we have added the root folder of frontend here
+        ,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -141,3 +144,12 @@ REST_FRAMEWORK = {
         'jwt_auth.authentication.JWTAuthentication',
     ],
 }
+
+ROOT_URLCONF = 'sway.urls'  # check if you have this already, if not add it in
+
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'front-end', "build", "static"),
+)
+
+django_heroku.settings(locals())

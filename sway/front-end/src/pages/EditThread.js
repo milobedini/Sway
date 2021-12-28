@@ -23,7 +23,7 @@ const EditThread = () => {
 
   useEffect(() => {
     const getArticle = async () => {
-      const res = await axios.get(`/api/feed/${id}`)
+      const res = await axios.get(`/api/feed/${id}/`)
       setPreloadedValues({
         title: res.data.title,
         text: res.data.text,

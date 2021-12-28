@@ -37,7 +37,7 @@ const MeditationShow = () => {
   useEffect(() => {
     const getMeditation = async (id) => {
       const user = parseInt(getUserId())
-      const res = await axios.get(`/api/meditations/${id}`)
+      const res = await axios.get(`/api/meditations/${id}/`)
       console.log(res)
       setName(res.data.name)
       setDescription(res.data.description)

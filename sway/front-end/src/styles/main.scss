@@ -85,3 +85,9 @@ main {
 .footer {
   padding: 0;
 }
+
+.collapsing {
+  -webkit-transition: none;
+  transition: none;
+  display: none;
+}

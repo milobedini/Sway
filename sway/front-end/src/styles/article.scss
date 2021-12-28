@@ -57,7 +57,7 @@
   text-transform: capitalize;
 }
 .comment-text {
-  max-width: 50%;
+  min-width: 100%;
   display: flex;
   text-align: left;
 }
@@ -89,4 +89,50 @@
 }
 .comment-list {
   margin-top: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  .comment-username {
+    position: unset;
+  }
+
+  .comment-list {
+    margin-top: unset;
+    padding-left: 1rem;
+    margin-bottom: 0;
+  }
+  .sub-comment {
+    margin-bottom: 1rem;
+  }
+
+  .article-show .comment-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: x-small;
+  }
+
+  .comment-text {
+    max-width: 78vw;
+    p {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .comment-time {
+    position: unset;
+    font-size: smaller;
+  }
+  .leave-comment {
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .comment-textbox {
+      margin-bottom: 1rem;
+    }
+  }
 }
