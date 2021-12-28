@@ -136,3 +136,24 @@ As mentioned, the app being fully responsive was crucial from the outset. Bootst
 
 #### Profile Page
 <img width="966" alt="Screenshot 2021-12-28 at 13 00 58" src="https://user-images.githubusercontent.com/89992629/147568871-a599a603-912f-4309-85c5-99cba6ce3bcb.png">
+
+# Wins & Blockers
+### **Wins**
+- Complete application that delivers many features across all web devices. 
+- Learning and utilising numerous Hooks and building a fully customisable audio player.
+
+### **Blockers**
+- Learning the idiosyncrasies of SQL databases and Django initially took some time to embed, whilst some of the Django features such as the admin portal were particularly time saving.
+
+# Bugs
+- The favouriting/unfavouriting of a meditation does not always switch the icon as it should.
+- When registering, the user is not given a specific error message explaining that the given password is not strong enough.
+
+# Future Improvements
+- The ability to edit a note.
+- A featured content component within the home page (e.g. the most favourited meditations, most commented on threads).
+- Meditation history within the user profile page.
+- Profile picture/avatar for each user.
+
+# Key Takeaways
+Building Sway was a great way to build my knowledge of Python, as well as of relational databases (SQL). Creating another React front-end further deepened my ability in this area, especially having employed useRef and useContext for the first time. Whilst Django felt a little limiting at times compared to MongoDB/Mongoose, its ability to create a functioning back-end so quickly and efficiently means that I will continue to delve deeper into it.
