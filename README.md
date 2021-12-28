@@ -40,7 +40,7 @@ Clone or download the repository and run the following within the terminal:
 - Psycopg2
 - PyJWT
 - Python
-- 
+
 ### Front-End
 - Axios
 - Bootstrap
