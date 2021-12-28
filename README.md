@@ -103,3 +103,36 @@ The notes page was also a rewarding challenge, especially due to being able to r
 As mentioned, the app being fully responsive was crucial from the outset. Bootstrap was utilised in order to neatly create a responsive navbar that became a hamburger menu on appropriate screen sizes. Through using responsive styling methods, barely any additional code was needed to adapt the web-app to mobile. The entire website and menus adapt to whether the user is logged in or not and points them towards doing so. Sass was used for the styling and I decided to style each page to an acceptable standard during the front-end phase, before using a whole day at the end of the project to add the finishing touches.
 
 # Sway - Screenshot Walkthrough
+
+#### Home Page
+<img width="966" alt="Screenshot 2021-12-28 at 12 56 53" src="https://user-images.githubusercontent.com/89992629/147568476-f3d2b960-dbb9-4e33-80ad-b5d799ad374a.png">
+
+#### Meditate Page
+<img width="963" alt="Screenshot 2021-12-28 at 12 57 43" src="https://user-images.githubusercontent.com/89992629/147568543-bc9bdc50-3d83-4d66-bd70-afb65519b43e.png">
+
+#### Guided Meditations Page
+<img width="962" alt="Screenshot 2021-12-28 at 12 58 14" src="https://user-images.githubusercontent.com/89992629/147568577-c2897657-24fa-4b25-a962-5c419f4d14ea.png">
+
+#### Guided Meditation Show Page
+<img width="968" alt="Screenshot 2021-12-28 at 12 58 39" src="https://user-images.githubusercontent.com/89992629/147568624-e4f9b178-7654-4fe1-9a95-9d25df95aead.png">
+
+#### Meditation Timer Page
+<img width="968" alt="Screenshot 2021-12-28 at 12 58 55" src="https://user-images.githubusercontent.com/89992629/147568664-98f3e520-e14a-480e-a886-4cfa3cab74a7.png">
+
+#### Meditation Timer Settings Page
+<img width="967" alt="Screenshot 2021-12-28 at 12 59 08" src="https://user-images.githubusercontent.com/89992629/147568683-4b03b71e-aefb-47c5-97a7-8790a8bd3661.png">
+
+#### Notes Page
+<img width="965" alt="Screenshot 2021-12-28 at 12 59 33" src="https://user-images.githubusercontent.com/89992629/147568723-0c54a5f1-4073-4124-b08e-cfaa305b2e38.png">
+
+#### Community Page
+<img width="966" alt="Screenshot 2021-12-28 at 12 59 50" src="https://user-images.githubusercontent.com/89992629/147568761-0337180c-a46f-4af7-afa8-83b3ed697687.png">
+
+#### Thread Show Page
+<img width="966" alt="Screenshot 2021-12-28 at 13 00 19" src="https://user-images.githubusercontent.com/89992629/147568794-67a05853-e662-48a3-b77e-fa51b6245b02.png">
+
+#### Edit Thread Page
+<img width="965" alt="Screenshot 2021-12-28 at 13 00 37" src="https://user-images.githubusercontent.com/89992629/147568833-b53bf919-c1df-4058-9226-39942c3a5f13.png">
+
+#### Profile Page
+<img width="966" alt="Screenshot 2021-12-28 at 13 00 58" src="https://user-images.githubusercontent.com/89992629/147568871-a599a603-912f-4309-85c5-99cba6ce3bcb.png">
