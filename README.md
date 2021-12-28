@@ -27,7 +27,7 @@ Clone or download the repository and run the following within the terminal:
 # The Brief
 
 - Build a full stack application with a React front-end and a Django back-end.
-- Use a Python Django fully functional RESTful API to serve your data from a Postgres database.
+- Use a Python-Django fully functional RESTful API to serve your data from a Postgres database.
 - Create a complete web-app, using multiple (one-to-many and many-to-many) relationships and all CRUD routes.
 - The finished product should be publicly accessible and deployed.
 
