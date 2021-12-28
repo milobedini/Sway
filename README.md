@@ -1,7 +1,7 @@
 # Sway - SEI Project 4
 
 # Overview
-Sway is a mindfulness hub that provides numerous features to help a user achieve their goals. This is a full-stack project which represents my first experience utilising Python and Django on the backend. I chose to undertake our final project individually in order to learn as much as possible over the process. The whole web application was built and delivered over a one week period.
+Sway is a mindfulness web-app that provides numerous features to help a user achieve their goals. This is a full-stack project which represents my first experience utilising Python and Django on the backend. I chose to undertake our final project individually in order to learn as much as possible over the process. The whole web application was built and delivered over a one week period.
 
 ## Deployed -> **[Sway](https://sway-mindfulness.herokuapp.com/)**
 
