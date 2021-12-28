@@ -15,7 +15,7 @@ Clone or download the repository and run the following within the terminal:
 - Enter shell for project: pipenv shell
 - Make migrations: python3 manage.py makemigrations
 - Migrate: python3 manage.py migrate
-- Load the seed date for each Django app (articles, comments, jwt_auth, meditations, notes) by replacing ‘app’ with the app name: python3 manage.py loaddata app/seeds.json
+- Load the seed data for each Django app (articles, comments, jwt_auth, meditations, notes) by replacing ‘app’ with the app name: python3 manage.py loaddata app/seeds.json
 - NB at this stage you can run python3 manage.py runserver and view the web-app in its static form.
 - Initialise the backend server: python3 manage.py runserver
 - Move into front-end directory: cd front-end
