@@ -1,18 +1,13 @@
-from django.core.exceptions import PermissionDenied
 from django.shortcuts import render
-from django.http.response import HttpResponse
 from rest_framework.exceptions import NotFound
 from rest_framework.views import APIView
 from rest_framework.views import Response
 from rest_framework.views import status
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
-from jwt_auth.models import User
-from jwt_auth.serializers.populated import PopulatedUserSerializer
 
 from .models import Meditation
 from .serializers.populated import PopulatedMeditationSerializer
-from .serializers.common import MeditationSerializer
 from .serializers.favourite import FavouriteMeditationSerializer
 
 # Create your views here.

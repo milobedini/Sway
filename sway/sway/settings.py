@@ -62,8 +62,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'front-end')
-                 ]  # Look, we have added the root folder of frontend here
-        ,
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -145,7 +144,7 @@ REST_FRAMEWORK = {
     ],
 }
 
-ROOT_URLCONF = 'sway.urls'  # check if you have this already, if not add it in
+ROOT_URLCONF = 'sway.urls'
 
 
 STATICFILES_DIRS = (

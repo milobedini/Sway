@@ -1,5 +1,4 @@
 import React from 'react'
-// import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { getToken } from './helpers/auth'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'

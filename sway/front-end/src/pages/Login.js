@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { setToken, setUserId, setUsername } from '../helpers/auth'
 import axios from 'axios'
-// import FormInput from '../components/FormInput'
 import '../styles/auth.scss'
 import logo from '../assets/Favicon 2.svg'
 
@@ -11,7 +10,6 @@ const Login = ({ setIsLoggedIn }) => {
     email: '',
     password: '',
   })
-  // const [errorInfo, setErrorInfo] = useState({})
   const [isError, setIsError] = useState(false)
   const navigate = useNavigate()
 
@@ -27,7 +25,6 @@ const Login = ({ setIsLoggedIn }) => {
   const handleError = (error) => {
     console.log(error)
     if (error.response) {
-      // setErrorInfo(error.response.data)
       setIsError(true)
     }
   }
@@ -51,8 +48,6 @@ const Login = ({ setIsLoggedIn }) => {
       handleError(error)
     }
   }
-
-  // const formInputProps = { data, errorInfo, handleFormChange }
 
   return (
     <section className="vh-90 login" style={{ backgroundColor: '#eee' }}>

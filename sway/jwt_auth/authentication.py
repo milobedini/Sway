@@ -1,7 +1,7 @@
 from rest_framework.authentication import BasicAuthentication
 from rest_framework.exceptions import PermissionDenied
 from django.contrib.auth import get_user_model
-from django.conf import settings  # for the secret key
+from django.conf import settings
 import jwt
 User = get_user_model()
 
@@ -11,7 +11,7 @@ class JWTAuthentication(BasicAuthentication):
         header = request.headers.get('Authorization')
         if not header:
             return None
-        if header.startswith('Basic'):  # Add this line in
+        if header.startswith('Basic'):
             return None
         if not header.startswith('Bearer'):
             raise PermissionDenied({'message': 'Invalid authorization header'})
@@ -23,6 +23,5 @@ class JWTAuthentication(BasicAuthentication):
         except jwt.exceptions.InvalidTokenError:
             raise PermissionDenied({'message': 'Invalid Token'})
         except User.DoesNotExist:
-            # raise is the equivalent of throwing error
             raise PermissionDenied({'message': 'User not found'})
         return (user, token)

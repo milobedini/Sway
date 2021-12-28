@@ -5,7 +5,6 @@ import '../styles/auth.scss'
 import logo from '../assets/Favicon 2.svg'
 
 import React from 'react'
-// import FormInput from '../components/FormInput'
 
 const Register = () => {
   const [data, setData] = useState({
@@ -14,7 +13,6 @@ const Register = () => {
     password: '',
     password_confirmation: '',
   })
-  // const [errorInfo, setErrorInfo] = useState({})
   const [isError, setIsError] = useState(false)
   const navigate = useNavigate()
 
@@ -36,7 +34,6 @@ const Register = () => {
 
   const handleError = (error) => {
     if (error) {
-      // setErrorInfo(error.response.data)
       setIsError(true)
     }
   }
@@ -49,7 +46,6 @@ const Register = () => {
     })
     console.log(data)
   }
-  // const formInputProps = { data, errorInfo, handleFormChange }
 
   return (
     <section className="vh-90 register" style={{ backgroundColor: '#eee' }}>

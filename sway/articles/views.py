@@ -33,7 +33,6 @@ class ArticleListView(APIView):
 
 
 class ArticleDetailView(APIView):
-    # permission_classes = (IsAuthenticatedOrReadOnly,)
 
     def get(self, request, pk):
         article = Article.objects.get(id=pk)
