@@ -83,7 +83,7 @@ I used Asana to clearly layout what needed to be achieved within the strict time
 <img width="1908" alt="Screenshot 2021-12-28 at 12 12 32" src="https://user-images.githubusercontent.com/89992629/147565117-d8468d1d-8b00-404a-9618-18d6a5fddcb3.png">
 
 ## 2) Back-End
-In my first experience using Python and Django as a backend, as well as SQL databases (in the form of PostgreSQL), I created 5 models (apps in Django terminology). These were for the articles, comments, users, meditations and notes. I utilised a customer user model and authentication (using JWT)  rather than solely relying on Django’s pre-built version. A total of 19 RESTful API endpoints were created, which were all tested using Postman during the backend build.
+In my first experience using Python and Django as a backend, as well as a SQL database (in the form of PostgreSQL), I created 5 models (apps in Django terminology). These were for the articles, comments, users, meditations and notes. I utilised a customer user model and authentication (using JWT)  rather than solely relying on Django’s pre-built version. A total of 19 RESTful API endpoints were created, which were all tested using Postman during the backend build.
 
 #### Code Snippet - Notes views
 <img width="697" alt="Screenshot 2021-12-28 at 12 14 41" src="https://user-images.githubusercontent.com/89992629/147565285-1929424b-b0b6-45d3-9cf5-f8a4f8de8c2e.png">
